@@ -6,3 +6,5 @@ test/testchain/geth.ipc
 test/testchain/history
 test/contracts
 private
+front-end/node_modules
+front-end/node_modules/*
