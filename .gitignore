@@ -8,3 +8,4 @@ test/contracts
 private
 front-end/node_modules
 front-end/node_modules/*
+/build/

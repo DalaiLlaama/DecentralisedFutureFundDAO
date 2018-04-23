@@ -1,55 +1,30 @@
 import React, { Component } from 'react';
 
-import { Card, Button, Icon } from 'semantic-ui-react';
-import factory from '../ethereum/factory';
+import { Container, Header, Image } from 'semantic-ui-react';
 import Layout from '../components/Layout';
-import { Link } from '../routes';
+//import logo from '../dfftxt.png';
 
+class DffDaoIndex extends Component {
 
-class CampaignIndex extends Component {	
-	static async getInitialProps() {
-		const campaigns = await factory.methods.getDeployedCampaigns().call();
-		
-		return { campaigns };
-	}
-
-	renderCampaigns() {
-		const items = this.props.campaigns.map(address => {
-			return {
-				header: address,
-				description: (
-					<Link route={`/campaigns/${address}`}>
-						<a>View Campaign</a>
-					</Link>
-				),
-				fluid: true
-			}
-		});
-		
-		return <Card.Group items={items} />;
-	}
-	
 	render() {
 		
 		return (
 		<Layout>
-		<div>
-			<h3>Open Campaigns</h3>
-			<Link route="/campaigns/new" >
-			<a>
-				<Button 
-					content="Create Campaign"
-					icon="add" 
-					primary
-					floated="right"
-					
-				/>
-			</a>
-			</Link>
-			{this.renderCampaigns()}
-		</div>
+		<Container>
+			<Header as='h2'>The Decentralised Future Fund DAO</Header>
+			<Image src='./dfftxt.png' size='medium' centered />
+			<p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi 
+			nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix 
+			fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.
+
+			Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores 
+			adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete 
+			utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi 
+			convenire mnesarchum eu per, quas minimum postulant per id.
+			</p>
+		</Container>
 		</Layout>
 	)}
 }
 
-export default CampaignIndex;
+export default DffDaoIndex;

@@ -1,22 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from '../routes';
 
-export default () => {
+export default class SiteMenu extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+	const { activeItem } = this.state  
+  
 	return (
-		<Menu style={{ marginTop: '10px' }}>
+	  <div>
+		<Menu attached='top' tabular style={{ marginTop: '10px', marginBottom: '20px' }}>
+		  <Menu.Item name='home' active={activeItem === 'home'} >
 			<Link route="/">
-			  <a className="item">CrowdCoin</a>
+			  <a className="item">Home</a>
 			</Link>
-			  
-			<Menu.Menu position="right">
-			  <Link route="/">
-			    <a className="item">Campaigns</a>
+		  </Menu.Item>
+		  <Menu.Item name='proposals' active={activeItem === 'proposals'} >
+			  <Link route="/proposals">
+			    <a className="item">Proposals</a>
 			  </Link>
-			  <Link route="/campaigns/new">
-			    <a className="item">+</a>
+		  </Menu.Item>
+		  <Menu.Item name='members' active={activeItem === 'members'} >
+			  <Link route="/members">
+			    <a className="item">Members</a>
 			  </Link>
-			</Menu.Menu>
+		  </Menu.Item>
 		</Menu>
-	);
+	  </div>
+	)
+  }
 }
