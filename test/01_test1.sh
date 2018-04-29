@@ -70,9 +70,10 @@ echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
 solc_0.4.20 --version | tee -a $TEST1OUTPUT
 solc_0.4.21 --version | tee -a $TEST1OUTPUT
+solc --version | tee -a $TEST1OUTPUT
 
-echo "var tokenFactoryOutput=`solc_0.4.20 --optimize --pretty-json --combined-json abi,bin,interface $TOKENFACTORYSOL`;" > $TOKENFACTORYJS
-echo "var daoOutput=`solc_0.4.21 --optimize --pretty-json --combined-json abi,bin,interface $DAOSOL`;" > $DAOJS
+echo "var tokenFactoryOutput=`solc --optimize --pretty-json --combined-json abi,bin,interface $TOKENFACTORYSOL`;" > $TOKENFACTORYJS
+echo "var daoOutput=`solc --optimize --pretty-json --combined-json abi,bin,interface $DAOSOL`;" > $DAOJS
 
 
 geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee -a $TEST1OUTPUT
@@ -110,7 +111,7 @@ var deployLibBTTSMessage = "Deploy BTTS Library";
 // -----------------------------------------------------------------------------
 console.log("RESULT: ----- " + deployLibBTTSMessage + " -----");
 var tokenFactoryLibBTTSContract = web3.eth.contract(tokenFactoryLibBTTSAbi);
-// console.log(JSON.stringify(tokenFactoryLibBTTSContract));
+console.log(JSON.stringify(tokenFactoryLibBTTSContract));
 var tokenFactoryLibBTTSTx = null;
 var tokenFactoryLibBTTSAddress = null;
 var currentBlock = eth.blockNumber;
@@ -132,7 +133,7 @@ while (txpool.status.pending > 0) {
 printBalances();
 failIfTxStatusError(tokenFactoryLibBTTSTx, deployLibBTTSMessage);
 printTxData("tokenFactoryLibBTTSTx", tokenFactoryLibBTTSTx);
-// printTokenContractDetails();
+printTokenContractDetails();
 console.log("RESULT: ");
 
 

@@ -1,4 +1,5 @@
-IPCFILE=ipc:./testchain/geth.ipc
+//IPCFILE=ipc:./testchain/geth.ipc
+IPCFILE=http://localhost:8646
 PASSWORD=
 
 SOURCEDIR=../contracts

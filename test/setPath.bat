@@ -1,0 +1,1 @@
+PATH=%PATH%;C:\geth;C:\solc;
