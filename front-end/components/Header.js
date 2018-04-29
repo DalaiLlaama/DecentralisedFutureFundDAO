@@ -13,17 +13,29 @@ export default class SiteMenu extends Component {
 	return (
 	  <div>
 		<Menu attached='top' tabular style={{ marginTop: '10px', marginBottom: '20px' }}>
-		  <Menu.Item name='home' active={activeItem === 'home'} >
+		  <Menu.Item 
+		  	name='home' 
+		  	active={activeItem === 'home'} 
+		    onClick={this.handleItemClick} 
+		  >
 			<Link route="/">
 			  <a className="item">Home</a>
 			</Link>
 		  </Menu.Item>
-		  <Menu.Item name='proposals' active={activeItem === 'proposals'} >
-			  <Link route="/proposals">
+		  <Menu.Item 
+		  	name='proposals' 
+		  	active={activeItem === 'proposals'}
+		    onClick={this.handleItemClick} 
+		  >
+			<Link route="/proposals">
 			    <a className="item">Proposals</a>
-			  </Link>
+			</Link>
 		  </Menu.Item>
-		  <Menu.Item name='members' active={activeItem === 'members'} >
+		  <Menu.Item 
+		  	name='members' 
+		  	active={activeItem === 'members'} 
+		  	onClick={this.handleItemClick}
+		  >
 			  <Link route="/members">
 			    <a className="item">Members</a>
 			  </Link>

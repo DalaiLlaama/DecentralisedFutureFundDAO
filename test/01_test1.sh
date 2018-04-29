@@ -111,7 +111,7 @@ var deployLibBTTSMessage = "Deploy BTTS Library";
 // -----------------------------------------------------------------------------
 console.log("RESULT: ----- " + deployLibBTTSMessage + " -----");
 var tokenFactoryLibBTTSContract = web3.eth.contract(tokenFactoryLibBTTSAbi);
-console.log(JSON.stringify(tokenFactoryLibBTTSContract));
+// console.log(JSON.stringify(tokenFactoryLibBTTSContract));
 var tokenFactoryLibBTTSTx = null;
 var tokenFactoryLibBTTSAddress = null;
 var currentBlock = eth.blockNumber;

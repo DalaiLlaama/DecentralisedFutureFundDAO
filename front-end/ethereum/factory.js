@@ -3,7 +3,7 @@ import DFFDAO from '../../build/DFFDAO.json';
 
 const instance = new web3.eth.Contract(
 		JSON.parse(DFFDAO.interface),
-		'0x3514413619b38fa608716Dc0a7119626922B3634'
+		'0xf4441f10804b35b13bad1e664e32237773276253'
 );
 
 export default instance;

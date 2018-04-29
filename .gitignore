@@ -9,3 +9,5 @@ private
 front-end/node_modules
 front-end/node_modules/*
 /build/
+
+front-end/.next
