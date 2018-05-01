@@ -12,7 +12,7 @@ export default class SiteMenu extends Component {
   
 	return (
 	  <div>
-		<Menu attached='top' tabular style={{ marginTop: '10px', marginBottom: '20px' }}>
+		<Menu attached='top' tabular style={{ marginTop: '10px', marginBottom: '20px' }} size="massive">
 		  <Menu.Item 
 		  	name='home' 
 		  	active={activeItem === 'home'} 
