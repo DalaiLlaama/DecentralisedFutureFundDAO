@@ -1,32 +1,43 @@
 import React, { Component } from 'react';
 
-import { Input, Menu, Segment } from 'semantic-ui-react';
+import { Input, Menu, Button, Card, Icon } from 'semantic-ui-react';
 import dffdao from '../../ethereum/dffdao';
-import Layout from '../components/Layout';
-import { Link } from '../routes';
+import Layout from '../../components/Layout';
+import { Link } from '../../routes';
+import web3 from '../../ethereum/web3';
 
 
-class DffDaoHome extends Component {	
+class MembersIndex extends Component {	
+	
 	static async getInitialProps() {
-		const proposals = await dffdao.methods.proposals().call();
+		const addresses = await dffdao.methods.getMembers().call();
 		
-		return { proposals };
+		const members = await Promise.all(
+			addresses.map(address => {
+				return dffdao.methods.getMemberData(address).call()
+					.then(function(member) {
+						member.address = address;
+						console.log(member._name);
+						member.name = web3.toAscii(member._name);
+						return member;
+						});
+			})
+		);
+		//console.log(members);
+		
+		return { members };
 	}
 
-	renderProposals() {
-		const items = this.props.proposals.map(address => {
-			return {
-				header: address,
-				description: (
-					<Link route={`/proposals/${propid}`}>
-						<a>View Proposals</a>
-					</Link>
-				),
-				fluid: true
-			}
-		});
+	renderMembers() {
+		const members = this.props.members.map((member) => (
+			<Card>	
+				<Card.Header>{member.name}</Card.Header>
+				<Card.Description>{member.address}</Card.Description>
+				<Card.Content><a><Icon name={member._governor ? 'favorite' : ''} /></a></Card.Content>
+			</Card>
+		));
 		
-		return <Card.Group items={items} />;
+		return <Card.Group>{members}</Card.Group>;
 	}
 	
 	render() {
@@ -34,22 +45,21 @@ class DffDaoHome extends Component {
 		return (
 		<Layout>
 		<div>
-			<h3>Open proposals</h3>
-			<Link route="/proposals/new" >
-			<a>
-				<Button 
-					content="Create Proposals"
-					icon="add" 
-					primary
-					floated="right"
-					
-				/>
-			</a>
+			<h3>Members</h3>
+			<Link route="/members/new" >
+				<a>
+					<Button 
+						content="Add Member"
+						icon="add" 
+						primary
+						floated="right"
+					/>
+				</a>
 			</Link>
-			{this.renderProposals()}
+			{this.renderMembers()}
 		</div>
 		</Layout>
 	)}
 }
 
-export default DffDaoIndex;
+export default MembersIndex;
