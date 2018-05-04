@@ -5,7 +5,7 @@ import web3 from './web3';
 import dffdao from './dffdao';
 
 class Members {
-	async getMemberList () {
+	async loadMemberList () {
 		console.log('get members');
 		// Get member addresses from the contract
 		const addresses = await dffdao.methods.getMembers().call();
@@ -26,6 +26,7 @@ class Members {
 				//console.log(member._name);
 				// Convert name from bytes32
 				try {
+					// Remove leading /x0000 chars (and other unprintables)
 					member.name = web3.utils.toAscii(member._name).replace(/[^ -~]+/g, "");
 				} catch (err) {member.name = err.message};
 				console.log('member ', member);
@@ -35,8 +36,8 @@ class Members {
 	
 	async getMemberAddressMap() {
 		const addressMap = new Map();
-		const p = this.getMemberList();
-		console.log('getMemberList() returns', p);
+		const p = this.loadMemberList();
+		console.log('loadMemberList() returns', p);
 		p.then( memberList => {
 			console.log('getMemberAddresses', memberList);
 			memberList.forEach(member => {
@@ -52,6 +53,10 @@ class Members {
 		this.memberAddressMap = (await this.getMemberAddressMap())._c;
 		console.log('init ', this.memberAddressMap);
 		return true;
+	}
+	
+	getMemberList() {
+		return this.memberAddressMap.values();
 	}
 	
 	getName(address) {
