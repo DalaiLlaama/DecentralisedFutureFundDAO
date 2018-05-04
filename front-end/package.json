@@ -11,6 +11,7 @@
   "author": "Geoff Lamperd",
   "license": "ISC",
   "dependencies": {
+    "big-number": "^0.4.0",
     "child_process": "^1.0.2",
     "fs": "0.0.1-security",
     "fs-extra": "^5.0.0",

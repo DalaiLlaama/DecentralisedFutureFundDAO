@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from '../routes';
-import { Button, Table, Card, Grid, Segment, Label, Icon } from 'semantic-ui-react';
+import { Button, Table, Card, Grid, Segment, Label, Icon, Statistic, Container } from 'semantic-ui-react';
 import dffdao from '../ethereum/dffdao';
 import web3 from '../ethereum/web3';
 
@@ -106,8 +106,8 @@ class Proposal extends Component {
 			    </Segment>
 			    <Segment>
 			        <Label as='a' color={labelColour} ribbon>Amount</Label>
-			        {proposal.amount}
-			        {' ' + amountDenom}
+			        <Statistic horizontal value={proposal.amount}
+			        	label={amountDenom} />
 			    </Segment>
 			    <Segment>
 			        <Label as='a' color={labelColour} ribbon>Token</Label>
@@ -115,48 +115,63 @@ class Proposal extends Component {
 			    </Segment>
 			    <Segment>
 			        <Label as='a' color={labelColour} ribbon>Votes</Label>
-			        <Table definition>
+			        <Table definition columns='3'>
 				        <Table.Header>
 				         <Table.Row>
 				          <Table.HeaderCell />
-				          <Table.HeaderCell><Icon name="checkmark" color="red" size="large" /></Table.HeaderCell>
-				          <Table.HeaderCell><Icon name="remove" color="green"  size="large" /></Table.HeaderCell>
+				          <Table.HeaderCell textAlign='center'><Icon name="checkmark" color="red" size="large"  /></Table.HeaderCell>
+				          <Table.HeaderCell textAlign='center' ><Icon name="remove" color="green"  size="large" /></Table.HeaderCell>
 				         </Table.Row>
 				        </Table.Header>
 	
 				        <Table.Body>
 				         <Table.Row>
 				          <Table.Cell>Governors</Table.Cell>
-				          <Table.Cell>{proposal.govYesVotes}</Table.Cell>
-				          <Table.Cell>{proposal.govNoVotes}</Table.Cell>
+				          <Table.Cell textAlign='center' size='big'>{proposal.govYesVotes}</Table.Cell>
+				          <Table.Cell textAlign='center' size='big'>{proposal.govNoVotes}</Table.Cell>
 				         </Table.Row>
 				         <Table.Row>
 				          <Table.Cell>Members</Table.Cell>
-				          <Table.Cell>{proposal.memberYesVotes}</Table.Cell>
-				          <Table.Cell>{proposal.memberNoVotes}</Table.Cell>
+				          <Table.Cell textAlign='center' size='big'>{proposal.memberYesVotes}</Table.Cell>
+				          <Table.Cell textAlign='center' size='big'>{proposal.memberNoVotes}</Table.Cell>
 				         </Table.Row>
 				        </Table.Body>
-				        <Label>Result</Label>
+				        <Label style={{ marginTop: '10px', marginBottom: '20px' }} >Result: </Label>
 				        {voteResult}
 			        </Table>
 			    </Segment>
+				 <Segment>
+				 	<Label as='a' color={labelColour} ribbon>Cast Your Vote</Label>
+				     <Button 
+				        	positive 
+				        	onClick={event => this.onSubmit({ isYes: true })}
+				        	loading={this.state.loading}
+				        	circular>Vote Yes</Button>
+			        <Button 
+			        	negative 
+			        	onClick={event => this.onSubmit({ isYes: false })}
+			        	loading={this.state.loading}
+			        	circular>Vote No</Button>
+				 </Segment>
 		      </Segment.Group>
 
 			  </Grid.Column>
 			  <Grid.Column>
-				  	<Segment textAlign="center">
-				        <Label as='a' color={proposal.open ? 'green' : 'black'} size="huge">
-				        	{openText}
-				        </Label>
-				    </Segment>
+			  		<Container textAlign='center'>
+			          <Label as='a' color={proposal.open ? 'green' : 'black'} size="huge" >
+			        	{openText}
+			          </Label>
+			        </Container>
 					<Segment.Group>
 				  	 <Segment>
 				        <Label as='a' color={labelColour} ribbon>Proposer</Label>
-				        {proposal.proposer}
+				        <p>{proposal.proposerName}</p>
+				        <p>{proposal.proposer}</p>
 			         </Segment>
 				  	 <Segment>
 				        <Label as='a' color={labelColour} ribbon>Governor</Label>
-				        {proposal.governor}
+				        <p>{proposal.governorName}</p>
+				        <p>{proposal.governor}</p>
 				     </Segment>
 				  	 <Segment>
 				        <Label as='a' color={labelColour} ribbon>Addresses</Label>
@@ -169,30 +184,14 @@ class Proposal extends Component {
 				     </Segment>
 				  	 <Segment>
 				        <Label as='a' color={labelColour} ribbon>Executor</Label>
-				        {proposal.executor}
+				        <p>{proposal.executorName}</p>
+				        <p>{proposal.executor}</p>
 				     </Segment>
 			      </Segment.Group>
 			  
 			  </Grid.Column>
 			 </Grid.Row>
 			 
-			 <Grid.Row>
-			   <Grid.Column>
-			        <Button 
-			        	positive 
-			        	onClick={event => this.onSubmit({ isYes: true })}
-			        	loading={this.state.loading}
-			        >Vote Yes</Button>
-			   </Grid.Column>
-			   <Grid.Column>
-		        <Button 
-		        	negative 
-		        	positive 
-		        	onClick={event => this.onSubmit({ isYes: false })}
-		        	loading={this.state.loading}
-		        >Vote No</Button>
-		   </Grid.Column>
-			 </Grid.Row>
 			</Grid>
 		  </div>
 	    )

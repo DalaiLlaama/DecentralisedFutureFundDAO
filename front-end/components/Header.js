@@ -40,6 +40,15 @@ export default class SiteMenu extends Component {
 			    <a className="item">Members</a>
 			  </Link>
 		  </Menu.Item>
+		  <Menu.Item 
+		  	name='token' 
+		  	active={activeItem === 'token'} 
+		  	onClick={this.handleItemClick}
+		  >
+			  <Link route="/token">
+			    <a className="item">Token</a>
+			  </Link>
+		  </Menu.Item>
 		</Menu>
 	  </div>
 	)
