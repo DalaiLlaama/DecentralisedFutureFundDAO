@@ -17,7 +17,7 @@ export default class SiteMenu extends Component {
 		  	name='home' 
 		  	active={activeItem === 'home'} 
 		    onClick={this.handleItemClick} 
-		  >
+		   >
 			<Link route="/">
 			  <a className="item">Home</a>
 			</Link>
@@ -49,7 +49,16 @@ export default class SiteMenu extends Component {
 			    <a className="item">Token</a>
 			  </Link>
 		  </Menu.Item>
-		</Menu>
+		  <Menu.Item 
+			  	name='account' 
+			  	active={activeItem === 'account'} 
+			  	onClick={this.handleItemClick}
+		   >
+			  <Link route="/account">
+			    <a className="item">Account Settings</a>
+			  </Link>
+		   </Menu.Item>
+		  </Menu>
 	  </div>
 	)
   }

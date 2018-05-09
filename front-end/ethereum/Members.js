@@ -29,7 +29,7 @@ class Members {
 					// Remove leading /x0000 chars (and other unprintables)
 					member.name = web3.utils.toAscii(member._name).replace(/[^ -~]+/g, "");
 				} catch (err) {member.name = err.message};
-				console.log('member ', member);
+				//console.log('member ', member);
 				return member;
 		});
 	}
@@ -39,7 +39,7 @@ class Members {
 		const p = this.loadMemberList();
 		console.log('loadMemberList() returns', p);
 		p.then( memberList => {
-			console.log('getMemberAddresses', memberList);
+			//console.log('getMemberAddresses', memberList);
 			memberList.forEach(member => {
 				addressMap.set(member.address, member)
 			})
@@ -51,7 +51,7 @@ class Members {
 	memberAddressMap = new Map();
 	async init() {
 		this.memberAddressMap = (await this.getMemberAddressMap())._c;
-		console.log('init ', this.memberAddressMap);
+		//console.log('init ', this.memberAddressMap);
 		return true;
 	}
 	
@@ -60,8 +60,6 @@ class Members {
 	}
 	
 	getName(address) {
-		console.log('getName ', this.memberAddressMap);
-		console.log('getName address', address, typeof address);
 		if (address != undefined) {
 			return this.memberAddressMap.get(address).name;
 		} else {

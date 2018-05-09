@@ -19,18 +19,22 @@ class MembersIndex extends Component {
 	renderMembers() {
 		const { members } = this.props;
 		const memberList = members.memberAddressMap;
-		console.log('renderMembers', memberList);
+		//console.log('renderMembers', memberList.length );
 		const memberCards = [];
-		memberList.forEach((member) => (
+		//if (typeof memberList == 'Map') {
+	    for (const [address, member] of memberList) {
 			memberCards.push(
-			<Card fluid key={member._index}>
+			<Card  key={member._index}>
 				<Card.Header size='huge' >{member.name}<Icon name={member._governor ? 'favorite' : ''} color='purple' /></Card.Header>				
-				<Card.Description></Card.Description>
-				<Card.Meta size='small'>{member.address}</Card.Meta>
+				<Card.Description>{member._exists ? 'Exists': 'Not active'}</Card.Description>
+				<Card.Meta size='tiny'>{address}</Card.Meta>
 			</Card>
-		)));
+		)};
+		//} else {
+		//	console.log('memberList is an unexpected type ', memberList, typeof memberList);
+		//}
 		
-		return <Card.Group>{memberCards}</Card.Group>;
+		return <Card.Group itemsPerRow={2}>{memberCards}</Card.Group>;
 	}
 	
 	render() {
@@ -42,7 +46,7 @@ class MembersIndex extends Component {
 		<Layout>
 		<div>
 			<h3>Members</h3>
-			<Label basic><Icon name='favorite' color='purple' />indicates Governor</Label>
+			<Label as='a' basic><Icon name='favorite' color='purple' />indicates Governor</Label>
 			<Link route="/members/new" >
 				<Button 
 					content="Add Member"
