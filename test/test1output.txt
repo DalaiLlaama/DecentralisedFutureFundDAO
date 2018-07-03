@@ -1,5 +1,5 @@
 MODE               = 'test'
-GETHATTACHPOINT    = 'ipc:./testchain/geth.ipc'
+GETHATTACHPOINT    = 'http://localhost:8646'
 PASSWORD           = ''
 SOURCEDIR          = '../contracts'
 TOKENFACTORYSOL    = 'BTTSTokenFactory.sol'
@@ -12,24 +12,19 @@ TEST1OUTPUT        = 'test1output.txt'
 TEST1RESULTS       = 'test1results.txt'
 JSONSUMMARY        = 'Summary.json'
 JSONEVENTS         = 'Events.json'
-CURRENTTIME        = '1523958198' 'Tue 17 Apr 2018 09:43:18 UTC'
-START_DATE         = '1523958243' 'Tue 17 Apr 2018 09:44:03 UTC'
-END_DATE           = '1523958318' 'Tue 17 Apr 2018 09:45:18 UTC'
+CURRENTTIME        = '1524968253' ''
+START_DATE         = '1524968298' ''
+END_DATE           = '1524968373' ''
 --- Differences ../contracts/BTTSTokenFactory.sol BTTSTokenFactory.sol ---
 
 --- Differences ../contracts/DecentralisedFutureFundDAO.sol DecentralisedFutureFundDAO.sol ---
 
-solc, the solidity compiler commandline interface
-Version: 0.4.20+commit.3155dd80.Darwin.appleclang
-solc, the solidity compiler commandline interface
-Version: 0.4.21+commit.dfe3193c.Darwin.appleclang
 Welcome to the Geth JavaScript console!
 
-instance: Geth/v1.8.3-stable-329ac18e/darwin-amd64/go1.10
+instance: Geth/v1.8.6-stable-12683fec/windows-amd64/go1.10.1
 coinbase: 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e
-at block: 21380 (Tue, 17 Apr 2018 19:43:19 AEST)
- datadir: /Users/bok/Projects/DecentralisedFutureFundDAO/test/testchain
- modules: admin:1.0 clique:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0
+at block: 0 (Thu, 01 Jan 1970 11:00:00 AEDT)
+ modules: debug:1.0 eth:1.0 net:1.0 personal:1.0 rpc:1.0 txpool:1.0 web3:1.0
 
 > 
 true
@@ -115,6 +110,7 @@ undefined
 > 
 undefined
 > 
+{"abi":[{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedApprove","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"spender","type":"address"},{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedTransferFromCheck","outputs":[{"name":"result","type":"BTTSTokenInterface.CheckResult"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"signedApproveAndCallSig","outputs":[{"name":"","type":"bytes4"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"owner","type":"address"},{"name":"symbol","type":"string"},{"name":"name","type":"string"},{"name":"decimals","type":"uint8"},{"name":"initialSupply","type":"uint256"},{"name":"mintable","type":"bool"},{"name":"transferable","type":"bool"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"}],"name":"signedApproveHash","outputs":[{"name":"hash","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedTransfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"minter","type":"address"}],"name":"setMinter","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"spender","type":"address"},{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedTransferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"signedTransferSig","outputs":[{"name":"","type":"bytes4"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenAddress","type":"address"},{"name":"tokens","type":"uint256"}],"name":"transferAnyERC20Token","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"data","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"BTTSLib.Data storage"},{"name":"spender","type":"address"},{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"}],"name":"signedTransferFromHash","outputs":[{"name":"hash","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"}],"name":"signedTransferHash","outputs":[{"name":"hash","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"bttsVersion","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"newOwner","type":"address"}],"name":"transferOwnershipImmediately","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"}],"name":"enableTransfers","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"tokens","type":"uint256"},{"name":"lockAccount","type":"bool"}],"name":"mint","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"signedApproveSig","outputs":[{"name":"","type":"bytes4"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"}],"name":"unlockAccount","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedApproveCheck","outputs":[{"name":"result","type":"BTTSTokenInterface.CheckResult"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"signedTransferFromSig","outputs":[{"name":"","type":"bytes4"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"BTTSLib.Data storage"},{"name":"result","type":"BTTSTokenInterface.CheckResult"}],"name":"getCheckResultMessage","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":true,"inputs":[{"name":"hash","type":"bytes32"},{"name":"sig","type":"bytes"}],"name":"ecrecoverFromSig","outputs":[{"name":"recoveredAddress","type":"address"}],"payable":false,"stateMutability":"pure","type":"function"},{"constant":true,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"data","type":"bytes"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedApproveAndCallCheck","outputs":[{"name":"result","type":"BTTSTokenInterface.CheckResult"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"signingPrefix","outputs":[{"name":"","type":"bytes"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"}],"name":"acceptOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"data","type":"bytes"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"}],"name":"signedApproveAndCallHash","outputs":[{"name":"hash","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"to","type":"address"},{"name":"tokens","type":"uint256"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedTransferCheck","outputs":[{"name":"result","type":"BTTSTokenInterface.CheckResult"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"},{"name":"tokenOwner","type":"address"},{"name":"spender","type":"address"},{"name":"tokens","type":"uint256"},{"name":"data","type":"bytes"},{"name":"fee","type":"uint256"},{"name":"nonce","type":"uint256"},{"name":"sig","type":"bytes"},{"name":"feeAccount","type":"address"}],"name":"signedApproveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"self","type":"BTTSLib.Data storage"}],"name":"disableMinting","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"from","type":"address"},{"indexed":false,"name":"to","type":"address"}],"name":"MinterUpdated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"},{"indexed":false,"name":"lockAccount","type":"bool"}],"name":"Mint","type":"event"},{"anonymous":false,"inputs":[],"name":"MintingDisabled","type":"event"},{"anonymous":false,"inputs":[],"name":"TransfersEnabled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"}],"name":"AccountUnlocked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"tokenOwner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"tokens","type":"uint256"}],"name":"Approval","type":"event"}],"eth":{"_requestManager":{"polls":{},"provider":{},"timeout":null},"accounts":["0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","0xa11aae29840fbb5c86e6fd4cf809eba183aef433","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844","0xa55a151eb00fded1634d27d1127b4be4627079ea","0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9","0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec","0xa88a05d2b88283ce84c8325760b72a64591279a2","0xa99a0ae3354c06b1459fd441a32a3f71005d7da0","0xaaaa9de1e6c564446ebca0fd102d8bd92093c756","0xabba43e7594e3b76afb157989e93c6621497fd4b","0xacca534c9f62ab495bd986e002ddf0f054caae4f","0xadda9b762a00ff12711113bfdc36958b73d7f915","0xaeea63b5479b50f79583ec49dacdcf86ddeff392","0xaffa4d3a80add8ce4018540e056dacb649589394","0xb00bfde102270687324f9205b693859df64f8923","0xb11be1d4ef8e94d01cb2695092a79d139a8dad98","0xb22be2d9eef0d7e260cf96a64feea0b95ed3e74f","0xb33b7ecf5e47be3981c74d989d3af8b665b4b649","0xb44b43d59b738b088b690ae276c1e979aba8268d","0xb55b57d113b45481e31aaf03d6f4e5ad4ef325f8","0xb66bcb4e473de80e2c8a47ced10c22c705a5e602","0xb77bbbaa7c1649547ae61de4b80b91568c28351a","0xb88b728490b417e29b0784db30535db343830dba","0xb99b3d1f72edb05a0321db58eddcf83fd73c4ade","0xbaab56da883edbe5314b8005be410022c510ccae","0xbbbb9809de0456ce0e0cd660e6e4ceabef3f521c","0xbccb68dd0ac87ef290aef49870d155f076c87868","0xbddb726ee06906e104db210e6d0506f2b062e477","0xbeeb24ff18203658d0a1d4682ee3f36ad663ec87","0xbffbd8f029ef0bd81cf754b53e8b3a5684f8b3ff"],"blockNumber":11,"coinbase":"0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e","compile":{},"gasPrice":"1","hashrate":0,"mining":true,"pendingTransactions":[],"protocolVersion":"0x3f","syncing":false}}
 undefined
 > 
 undefined
@@ -140,11 +136,10 @@ undefined
 ... 
 undefined
 > 
-DATA: tokenFactoryLibBTTSAddress=0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.003550569000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.003550569000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.003514014000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.003514014000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -155,7 +150,6 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -165,9 +159,11 @@ undefined
 RESULT: PASS Deploy BTTS Library
 1
 > 
-RESULT: tokenFactoryLibBTTSTx status=0x1 Success gas=6000000 gasUsed=3550569 costETH=0.003550569 costUSD=1.81380817365 @ ETH/USD=510.85 gasPrice=1 gwei block=21390 txIx=0 txId=0xe634ada15530cf2e1e2b3c140e4d7b57cb70ac01f92fc3d04e6862955c311228 @ 1523958209 Tue, 17 Apr 2018 09:43:29 UTC
+RESULT: tokenFactoryLibBTTSTx status=0x1 Success gas=6000000 gasUsed=3514014 costETH=0.003514014 costUSD=2.33077520592 @ ETH/USD=663.28 gasPrice=1 gwei block=12 txIx=0 txId=0x97520e72096803e87c32baff009af9d7dd12d626adb67db454f90e29c3e485d5 @ 1524968288 Sun, 29 Apr 2018 02:18:08 UTC
 undefined
 > 
+DATA: tokenFactoryLibBTTSAddress=0x90d8927407c79c4a28ee879b821c76fc9bcc2688
+RESULT: tokenContractAddress=null
 undefined
 > 
 RESULT: 
@@ -218,11 +214,10 @@ undefined
 ... 
 undefined
 > 
-DATA: tokenFactoryAddress=0x657710d178b1d8f18c3e18df219fdafa75704b3b
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.006627501000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.006627501000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.006813134000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.006813134000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -233,8 +228,7 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -244,10 +238,11 @@ undefined
 RESULT: PASS Deploy BTTSTokenFactory
 1
 > 
-RESULT: tokenFactoryTx status=0x1 Success gas=6000000 gasUsed=3076932 costETH=0.003076932 costUSD=1.5718507122 @ ETH/USD=510.85 gasPrice=1 gwei block=21392 txIx=0 txId=0xa929c0c475dfa761ff895bbe0c661f007144568fa23a78b3da9426326dc7b804 @ 1523958211 Tue, 17 Apr 2018 09:43:31 UTC
+RESULT: tokenFactoryTx status=0x1 Success gas=6000000 gasUsed=3299120 costETH=0.00329912 costUSD=2.1882403136 @ ETH/USD=663.28 gasPrice=1 gwei block=13 txIx=0 txId=0x64fdb52bf627f7da30dedba8e10f391e8e524acbd0c8ac6c5d214f2e4f449e45 @ 1524968289 Sun, 29 Apr 2018 02:18:09 UTC
 undefined
 > 
-RESULT: tokenFactoryContractAddress=0x657710d178b1d8f18c3e18df219fdafa75704b3b
+DATA: tokenFactoryAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: tokenFactoryContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 RESULT: tokenFactory.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: tokenFactory.newOwner=0x0000000000000000000000000000000000000000
 undefined
@@ -289,20 +284,20 @@ undefined
 ... 
 undefined
 > 
-RESULT: tokenFactoryContractAddress=0x657710d178b1d8f18c3e18df219fdafa75704b3b
-RESULT: get BTTSTokenListing 0 #21394 {"bttsTokenAddress":"0x7d470e6fe08230e3776510a75a9d4876f4374a9e","decimals":"18","initialSupply":"0","mintable":true,"name":"Doofus Dongers","ownerAddress":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","symbol":"DFF","transferable":true}
+RESULT: tokenFactoryContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
+RESULT: get BTTSTokenListing 0 #14 {"bttsTokenAddress":"0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2","decimals":"18","initialSupply":"0","mintable":true,"name":"Doofus Dongers","ownerAddress":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","symbol":"DFF","transferable":true}
 undefined
 > 
-RESULT: bttsTokens=#1 ["0x7d470e6fe08230e3776510a75a9d4876f4374a9e"]
-undefined
-> 
-undefined
-> 
+RESULT: bttsTokens=#1 ["0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2"]
 undefined
 > 
 undefined
 > 
-DATA: tokenAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+undefined
+> 
+undefined
+> 
+DATA: tokenAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 undefined
 > 
 undefined
@@ -311,8 +306,8 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.008501416000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.008501416000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.008839659000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.008839659000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -323,25 +318,25 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
-RESULT: deployTokenTx status=0x1 Success gas=4000000 gasUsed=1873915 costETH=0.001873915 costUSD=0.95728947775 @ ETH/USD=510.85 gasPrice=1 gwei block=21394 txIx=0 txId=0x43f559aa9e222c5efa827951625d90b0e9ca2b1fd7984d938b6cc51efd2d8451 @ 1523958213 Tue, 17 Apr 2018 09:43:33 UTC
+RESULT: deployTokenTx status=0x1 Success gas=4000000 gasUsed=2026525 costETH=0.002026525 costUSD=1.344153502 @ ETH/USD=663.28 gasPrice=1 gwei block=14 txIx=0 txId=0x8227e6fa9d526705e75aa10922b5a6c69b86f043e9ce54eaf60dd0031a0ccbf8 @ 1524968290 Sun, 29 Apr 2018 02:18:10 UTC
 undefined
 > 
-RESULT: tokenFactoryContractAddress=0x657710d178b1d8f18c3e18df219fdafa75704b3b
+RESULT: tokenFactoryContractAddress=0x0e946b999033257976aa5cbe0e3530618ca1582d
 RESULT: tokenFactory.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: tokenFactory.newOwner=0x0000000000000000000000000000000000000000
-RESULT: BTTSTokenListing 0 #21394 {"bttsTokenAddress":"0x7d470e6fe08230e3776510a75a9d4876f4374a9e","decimals":"18","initialSupply":"0","mintable":true,"name":"Doofus Dongers","ownerAddress":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","symbol":"DFF","transferable":true}
+RESULT: BTTSTokenListing 0 #14 {"bttsTokenAddress":"0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2","decimals":"18","initialSupply":"0","mintable":true,"name":"Doofus Dongers","ownerAddress":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","symbol":"DFF","transferable":true}
 undefined
 > 
-RESULT: tokenContractAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+RESULT: tokenContractAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: token.newOwner=0x0000000000000000000000000000000000000000
 RESULT: token.symbol=DFF
@@ -392,11 +387,10 @@ undefined
 ... 
 undefined
 > 
-DATA: membersLibAddress=0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.008901818000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.008901818000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.009259740000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.009259740000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -407,20 +401,20 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
+DATA: membersLibAddress=0xe6ada9beed6e24be4c0259383db61b52bfca85f3
 RESULT: PASS Deploy DAO Library
 1
 > 
-RESULT: membersLibTx status=0x1 Success gas=6000000 gasUsed=400402 costETH=0.000400402 costUSD=0.2045453617 @ ETH/USD=510.85 gasPrice=1 gwei block=21397 txIx=0 txId=0xb450971dad195731f832c81e9fc1b9bb049d1bd44295e1ffe81b8821e17f7a07 @ 1523958216 Tue, 17 Apr 2018 09:43:36 UTC
+RESULT: membersLibTx status=0x1 Success gas=6000000 gasUsed=420081 costETH=0.000420081 costUSD=0.27863132568 @ ETH/USD=663.28 gasPrice=1 gwei block=15 txIx=0 txId=0xede35e4b56043fbfaf4fb16fd714b6bcd554eefd9e7be33142ad4aabf792c500 @ 1524968292 Sun, 29 Apr 2018 02:18:12 UTC
 undefined
 > 
 RESULT: 
@@ -463,11 +457,10 @@ undefined
 ... 
 undefined
 > 
-DATA: daoAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011042572000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.011042572000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011383506000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.011383506000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -478,24 +471,24 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
-RESULT: 16 0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7        0.000000000000000000           0.000000000000000000 DFF DAO
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 15 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 DAO Library - Members
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
+DATA: daoAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: PASS Deploy DAO Contract
 1
 > 
-RESULT: daoAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7 status=0x1 Success gas=6000000 gasUsed=2140754 costETH=0.002140754 costUSD=1.0936041809 @ ETH/USD=510.85 gasPrice=1 gwei block=21399 txIx=0 txId=0x14fba51666f31af53f17db11a09e8e68fd4d80b66d29e7ca2f725c87b0550c0c @ 1523958218 Tue, 17 Apr 2018 09:43:38 UTC
+RESULT: daoAddress=0xf4441f10804b35b13bad1e664e32237773276253 status=0x1 Success gas=6000000 gasUsed=2123766 costETH=0.002123766 costUSD=1.40865151248 @ ETH/USD=663.28 gasPrice=1 gwei block=16 txIx=0 txId=0xe209cfe5dfd910888a01b6296a1c61cd8571b75ad2017da7f8e4b07f75c99ce5 @ 1524968293 Sun, 29 Apr 2018 02:18:13 UTC
 undefined
 > 
-RESULT: daoContractAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: daoContractAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: dao.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: dao.newOwner=0x0000000000000000000000000000000000000000
 RESULT: dao.bttsToken=0x0000000000000000000000000000000000000000
@@ -532,8 +525,8 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011183333000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.011183333000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011524047000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.011524047000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000           0.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000           0.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000           0.000000000000000000 Account #4
@@ -544,11 +537,11 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
-RESULT: 16 0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7      100.000000000000000000           0.000000000000000000 DFF DAO
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 15 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 DAO Library - Members
+RESULT: 16 0xf4441f10804b35b13bad1e664e32237773276253      100.000000000000000000           0.000000000000000000 DFF DAO
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -567,32 +560,32 @@ RESULT: PASS Initialisation - Set BTTS Token - token.transferOwnershipImmediatel
 RESULT: PASS Initialisation - Set BTTS Token - send 100 ETH to dao
 1
 > 
-RESULT: initSetBTTSToken_1Tx status=0x1 Success gas=100000 gasUsed=46080 costETH=0.00004608 costUSD=0.023539968 @ ETH/USD=510.85 gasPrice=1 gwei block=21402 txIx=0 txId=0x7bf3fc206b668bb1d1f6983f81d06072ee816cf7206045844834e04b83727ced @ 1523958221 Tue, 17 Apr 2018 09:43:41 UTC
+RESULT: initSetBTTSToken_1Tx status=0x1 Success gas=100000 gasUsed=46010 costETH=0.00004601 costUSD=0.0305175128 @ ETH/USD=663.28 gasPrice=1 gwei block=17 txIx=0 txId=0x737f10127c516112981b7f163ca8860ef365fdb1e13e0ac8c8bd35a20486142f @ 1524968295 Sun, 29 Apr 2018 02:18:15 UTC
 undefined
 > 
-RESULT: initSetBTTSToken_2Tx status=0x1 Success gas=100000 gasUsed=33697 costETH=0.000033697 costUSD=0.01721411245 @ ETH/USD=510.85 gasPrice=1 gwei block=21402 txIx=1 txId=0xe19806f0afaf59237c410dc3ada458977cdf6010eac72c9b1565444f0fe6ae16 @ 1523958221 Tue, 17 Apr 2018 09:43:41 UTC
+RESULT: initSetBTTSToken_2Tx status=0x1 Success gas=100000 gasUsed=33583 costETH=0.000033583 costUSD=0.02227493224 @ ETH/USD=663.28 gasPrice=1 gwei block=18 txIx=0 txId=0x212570087184255c2c711680a55a76a798e02a84808b741fb60553ce6dc1e1a9 @ 1524968295 Sun, 29 Apr 2018 02:18:15 UTC
 undefined
 > 
-RESULT: initSetBTTSToken_3Tx status=0x1 Success gas=100000 gasUsed=38439 costETH=0.000038439 costUSD=0.01963656315 @ ETH/USD=510.85 gasPrice=1 gwei block=21402 txIx=2 txId=0x7d91cfc7365fe18cc719b6476be00f8819cdb0e872869cb1333380fe4b3be825 @ 1523958221 Tue, 17 Apr 2018 09:43:41 UTC
+RESULT: initSetBTTSToken_3Tx status=0x1 Success gas=100000 gasUsed=38391 costETH=0.000038391 costUSD=0.02546398248 @ ETH/USD=663.28 gasPrice=1 gwei block=19 txIx=0 txId=0x66e657a8fbabd57feb57ac452293f001a3246a88ea91aff948d88bce1a342bba @ 1524968295 Sun, 29 Apr 2018 02:18:15 UTC
 undefined
 > 
-RESULT: initSetBTTSToken_4Tx status=0x1 Success gas=100000 gasUsed=22545 costETH=0.000022545 costUSD=0.01151711325 @ ETH/USD=510.85 gasPrice=1 gwei block=21402 txIx=3 txId=0xbd3d53de261a041750c47fcf2d4a557a4221fa69f9673baf307a541301fa5ecb @ 1523958221 Tue, 17 Apr 2018 09:43:41 UTC
+RESULT: initSetBTTSToken_4Tx status=0x1 Success gas=100000 gasUsed=22557 costETH=0.000022557 costUSD=0.01496160696 @ ETH/USD=663.28 gasPrice=1 gwei block=20 txIx=0 txId=0xb46fbed78519efa62f5a34673b105793f4b2f04f00a4324e6a95a23a1097318d @ 1524968295 Sun, 29 Apr 2018 02:18:15 UTC
 undefined
 > 
-RESULT: daoContractAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: daoContractAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: dao.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: dao.newOwner=0x0000000000000000000000000000000000000000
-RESULT: dao.bttsToken=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+RESULT: dao.bttsToken=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 RESULT: dao.initialised=false
 RESULT: dao.numberOfMembers=0
 RESULT: dao.getMembers=[]
 RESULT: dao.numberOfProposals=0
-RESULT: BTTSTokenUpdated 0 #21402 {"newBTTSToken":"0x7d470e6fe08230e3776510a75a9d4876f4374a9e","oldBTTSToken":"0x0000000000000000000000000000000000000000"}
-RESULT: EtherDeposited 0 #21402 {"amount":"100000000000000000000","sender":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433"}
+RESULT: BTTSTokenUpdated 0 #17 {"newBTTSToken":"0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2","oldBTTSToken":"0x0000000000000000000000000000000000000000"}
+RESULT: EtherDeposited 0 #20 {"amount":"100000000000000000000","sender":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433"}
 undefined
 > 
-RESULT: tokenContractAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
-RESULT: token.owner=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: tokenContractAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
+RESULT: token.owner=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: token.newOwner=0x0000000000000000000000000000000000000000
 RESULT: token.symbol=DFF
 RESULT: token.name=Doofus Dongers
@@ -600,9 +593,9 @@ RESULT: token.decimals=18
 RESULT: token.totalSupply=0
 RESULT: token.transferable=true
 RESULT: token.mintable=true
-RESULT: token.minter=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
-RESULT: OwnershipTransferred 0 #21402 {"from":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","to":"0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7"}
-RESULT: MinterUpdated 0 #21402 {"from":"0x0000000000000000000000000000000000000000","to":"0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7"}
+RESULT: token.minter=0xf4441f10804b35b13bad1e664e32237773276253
+RESULT: OwnershipTransferred 0 #19 {"from":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","to":"0xf4441f10804b35b13bad1e664e32237773276253"}
+RESULT: MinterUpdated 0 #18 {"from":"0x0000000000000000000000000000000000000000","to":"0xf4441f10804b35b13bad1e664e32237773276253"}
 undefined
 > 
 RESULT: 
@@ -636,8 +629,8 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011700509000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.011700509000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.012041238000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.012041238000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000      200000.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000      200000.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000        1000.000000000000000000 Account #4
@@ -648,11 +641,11 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
-RESULT: 16 0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7      100.000000000000000000           0.000000000000000000 DFF DAO
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 15 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 DAO Library - Members
+RESULT: 16 0xf4441f10804b35b13bad1e664e32237773276253      100.000000000000000000           0.000000000000000000 DFF DAO
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                401000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -668,19 +661,19 @@ RESULT: PASS Initialisation - Add Members - dao.initAddMember(account3, 'three',
 RESULT: PASS Initialisation - Add Members - dao.initAddMember(account4, 'four', false)
 1
 > 
-RESULT: initAddMembers_1Tx status=0x1 Success gas=300000 gasUsed=187346 costETH=0.000187346 costUSD=0.0957057041 @ ETH/USD=510.85 gasPrice=1 gwei block=21405 txIx=0 txId=0x3fedb891ce98fee73a09187ccd8337daf2ce907ee8966575d7fd1c63601539b9 @ 1523958224 Tue, 17 Apr 2018 09:43:44 UTC
+RESULT: initAddMembers_1Tx status=0x1 Success gas=300000 gasUsed=187351 costETH=0.000187351 costUSD=0.12426617128 @ ETH/USD=663.28 gasPrice=1 gwei block=21 txIx=0 txId=0xff3918a2702aaae58372c637177e6398157c92aa30a97558c47f2313ec1c6017 @ 1524968298 Sun, 29 Apr 2018 02:18:18 UTC
 undefined
 > 
-RESULT: initAddMembers_2Tx status=0x1 Success gas=300000 gasUsed=172474 costETH=0.000172474 costUSD=0.0881083429 @ ETH/USD=510.85 gasPrice=1 gwei block=21405 txIx=1 txId=0xe2eb9f9a38f3fad051938f76b05bf5e1d87cec0ede8c7c5cf9d6124d2350b3bd @ 1523958224 Tue, 17 Apr 2018 09:43:44 UTC
+RESULT: initAddMembers_2Tx status=0x1 Success gas=300000 gasUsed=172479 costETH=0.000172479 costUSD=0.11440187112 @ ETH/USD=663.28 gasPrice=1 gwei block=22 txIx=0 txId=0x8b406a2c5fe676603280f6c29d6182afaf2facfd2cac69a8a6f354ac87b363eb @ 1524968298 Sun, 29 Apr 2018 02:18:18 UTC
 undefined
 > 
-RESULT: initAddMembers_3Tx status=0x1 Success gas=300000 gasUsed=157356 costETH=0.000157356 costUSD=0.0803853126 @ ETH/USD=510.85 gasPrice=1 gwei block=21405 txIx=2 txId=0x93b83c9e03d985a5ecc8eab85d7b6d63c2845d76b93c3d3f2db16a98fd78112e @ 1523958224 Tue, 17 Apr 2018 09:43:44 UTC
+RESULT: initAddMembers_3Tx status=0x1 Success gas=300000 gasUsed=157361 costETH=0.000157361 costUSD=0.10437440408 @ ETH/USD=663.28 gasPrice=1 gwei block=23 txIx=0 txId=0x1851e94636eb4c4da8132cb5c7f2ea2a81f59778ed40975fb67cec756365669a @ 1524968298 Sun, 29 Apr 2018 02:18:18 UTC
 undefined
 > 
-RESULT: daoContractAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: daoContractAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: dao.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
 RESULT: dao.newOwner=0x0000000000000000000000000000000000000000
-RESULT: dao.bttsToken=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+RESULT: dao.bttsToken=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 RESULT: dao.initialised=false
 RESULT: dao.numberOfMembers=3
 RESULT: dao.getMembers=["0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844"]
@@ -688,13 +681,13 @@ RESULT: dao.member[0]=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 [true, 0, two, 
 RESULT: dao.member[1]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 [true, 1, three, true]
 RESULT: dao.member[2]=0xa44a08d3f6933c69212114bb66e2df1813651844 [true, 2, four, false]
 RESULT: dao.numberOfProposals=0
-RESULT: MemberAdded 0 #21405 {"_address":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","_governor":true,"_name":"0x000000000000000000000000000000000000000000000000000000000074776f","totalAfter":"1"}
-RESULT: MemberAdded 1 #21405 {"_address":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_governor":true,"_name":"0x0000000000000000000000000000000000000000000000000000007468726565","totalAfter":"2"}
-RESULT: MemberAdded 2 #21405 {"_address":"0xa44a08d3f6933c69212114bb66e2df1813651844","_governor":false,"_name":"0x00000000000000000000000000000000000000000000000000000000666f7572","totalAfter":"3"}
+RESULT: MemberAdded 0 #21 {"_address":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","_governor":true,"_name":"0x000000000000000000000000000000000000000000000000000000000074776f","totalAfter":"1"}
+RESULT: MemberAdded 1 #22 {"_address":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","_governor":true,"_name":"0x0000000000000000000000000000000000000000000000000000007468726565","totalAfter":"2"}
+RESULT: MemberAdded 2 #23 {"_address":"0xa44a08d3f6933c69212114bb66e2df1813651844","_governor":false,"_name":"0x00000000000000000000000000000000000000000000000000000000666f7572","totalAfter":"3"}
 undefined
 > 
-RESULT: tokenContractAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
-RESULT: token.owner=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: tokenContractAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
+RESULT: token.owner=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: token.newOwner=0x0000000000000000000000000000000000000000
 RESULT: token.symbol=DFF
 RESULT: token.name=Doofus Dongers
@@ -702,13 +695,13 @@ RESULT: token.decimals=18
 RESULT: token.totalSupply=401000
 RESULT: token.transferable=true
 RESULT: token.mintable=true
-RESULT: token.minter=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
-RESULT: Mint 0 #21405 {"lockAccount":false,"tokenOwner":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","tokens":"2e+23"}
-RESULT: Mint 1 #21405 {"lockAccount":false,"tokenOwner":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","tokens":"2e+23"}
-RESULT: Mint 2 #21405 {"lockAccount":false,"tokenOwner":"0xa44a08d3f6933c69212114bb66e2df1813651844","tokens":"1e+21"}
-RESULT: Transfer 0 #21405: from=0x0000000000000000000000000000000000000000 to=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 tokens=200000
-RESULT: Transfer 1 #21405: from=0x0000000000000000000000000000000000000000 to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 tokens=200000
-RESULT: Transfer 2 #21405: from=0x0000000000000000000000000000000000000000 to=0xa44a08d3f6933c69212114bb66e2df1813651844 tokens=1000
+RESULT: token.minter=0xf4441f10804b35b13bad1e664e32237773276253
+RESULT: Mint 0 #21 {"lockAccount":false,"tokenOwner":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","tokens":"2e+23"}
+RESULT: Mint 1 #22 {"lockAccount":false,"tokenOwner":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","tokens":"2e+23"}
+RESULT: Mint 2 #23 {"lockAccount":false,"tokenOwner":"0xa44a08d3f6933c69212114bb66e2df1813651844","tokens":"1e+21"}
+RESULT: Transfer 0 #21: from=0x0000000000000000000000000000000000000000 to=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 tokens=200000
+RESULT: Transfer 1 #22: from=0x0000000000000000000000000000000000000000 to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 tokens=200000
+RESULT: Transfer 2 #23: from=0x0000000000000000000000000000000000000000 to=0xa44a08d3f6933c69212114bb66e2df1813651844 tokens=1000
 undefined
 > 
 RESULT: 
@@ -756,8 +749,8 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011737787000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.011737787000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.012078431000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.012078431000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976        0.000000000000000000      200000.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000      200000.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000        1000.000000000000000000 Account #4
@@ -768,11 +761,11 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
-RESULT: 16 0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7      100.000000000000000000           0.000000000000000000 DFF DAO
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 15 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 DAO Library - Members
+RESULT: 16 0xf4441f10804b35b13bad1e664e32237773276253      100.000000000000000000           0.000000000000000000 DFF DAO
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                401000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -782,13 +775,13 @@ undefined
 RESULT: PASS Initialisation - Complete - dao.initialisationComplete()
 1
 > 
-RESULT: initialisationComplete_1Tx status=0x1 Success gas=100000 gasUsed=37278 costETH=0.000037278 costUSD=0.0190434663 @ ETH/USD=510.85 gasPrice=1 gwei block=21408 txIx=0 txId=0x0f63d2d2c36aa9f76fc82acaaf86c74b9f64423b3a2c84ef31ce3f7de50ec091 @ 1523958227 Tue, 17 Apr 2018 09:43:47 UTC
+RESULT: initialisationComplete_1Tx status=0x1 Success gas=100000 gasUsed=37193 costETH=0.000037193 costUSD=0.02466937304 @ ETH/USD=663.28 gasPrice=1 gwei block=24 txIx=0 txId=0x600e3eae8875706d0f90ae0d111bf64c4855b9344b8a2c9a58fd7bba9c68ae0d @ 1524968301 Sun, 29 Apr 2018 02:18:21 UTC
 undefined
 > 
-RESULT: daoContractAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: daoContractAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: dao.owner=0x0000000000000000000000000000000000000000
 RESULT: dao.newOwner=0x0000000000000000000000000000000000000000
-RESULT: dao.bttsToken=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+RESULT: dao.bttsToken=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 RESULT: dao.initialised=true
 RESULT: dao.numberOfMembers=3
 RESULT: dao.getMembers=["0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844"]
@@ -796,11 +789,11 @@ RESULT: dao.member[0]=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 [true, 0, two, 
 RESULT: dao.member[1]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 [true, 1, three, true]
 RESULT: dao.member[2]=0xa44a08d3f6933c69212114bb66e2df1813651844 [true, 2, four, false]
 RESULT: dao.numberOfProposals=0
-RESULT: OwnershipTransferred 0 #21408 {"_from":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","_to":"0x0000000000000000000000000000000000000000"}
+RESULT: OwnershipTransferred 0 #24 {"_from":"0xa11aae29840fbb5c86e6fd4cf809eba183aef433","_to":"0x0000000000000000000000000000000000000000"}
 undefined
 > 
-RESULT: tokenContractAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
-RESULT: token.owner=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: tokenContractAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
+RESULT: token.owner=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: token.newOwner=0x0000000000000000000000000000000000000000
 RESULT: token.symbol=DFF
 RESULT: token.name=Doofus Dongers
@@ -808,7 +801,7 @@ RESULT: token.decimals=18
 RESULT: token.totalSupply=401000
 RESULT: token.transferable=true
 RESULT: token.mintable=true
-RESULT: token.minter=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: token.minter=0xf4441f10804b35b13bad1e664e32237773276253
 undefined
 > 
 RESULT: 
@@ -832,9 +825,9 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.011947282000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.011737787000000000           0.000000000000000000 Account #1 - Contract Owner
-RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       -0.000209495000000000      200000.000000000000000000 Account #2
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.012275927000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.012078431000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       -0.000197496000000000      200000.000000000000000000 Account #2
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0        0.000000000000000000      200000.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000        1000.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
@@ -844,11 +837,11 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
-RESULT: 16 0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7      100.000000000000000000           0.000000000000000000 DFF DAO
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 15 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 DAO Library - Members
+RESULT: 16 0xf4441f10804b35b13bad1e664e32237773276253      100.000000000000000000           0.000000000000000000 DFF DAO
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                401000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -858,13 +851,13 @@ undefined
 RESULT: PASS Ether Payment Proposal - dao.proposeEtherPayment(ac2, 12 ETH)
 1
 > 
-RESULT: etherPaymentProposal_1Tx status=0x1 Success gas=300000 gasUsed=209495 costETH=0.000209495 costUSD=0.10702052075 @ ETH/USD=510.85 gasPrice=1 gwei block=21412 txIx=0 txId=0x5f672dc6d1527aec65509d990aae3c713261211e8c6858a032b4b15548419009 @ 1523958231 Tue, 17 Apr 2018 09:43:51 UTC
+RESULT: etherPaymentProposal_1Tx status=0x1 Success gas=300000 gasUsed=197496 costETH=0.000197496 costUSD=0.13099514688 @ ETH/USD=663.28 gasPrice=1 gwei block=25 txIx=0 txId=0xc658c6315eedc82e725c048d79a7ca5339f983586242c76b4ffb689d4a7ffbec @ 1524968304 Sun, 29 Apr 2018 02:18:24 UTC
 undefined
 > 
-RESULT: daoContractAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: daoContractAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: dao.owner=0x0000000000000000000000000000000000000000
 RESULT: dao.newOwner=0x0000000000000000000000000000000000000000
-RESULT: dao.bttsToken=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+RESULT: dao.bttsToken=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 RESULT: dao.initialised=true
 RESULT: dao.numberOfMembers=3
 RESULT: dao.getMembers=["0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844"]
@@ -873,11 +866,11 @@ RESULT: dao.member[1]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 [true, 1, three
 RESULT: dao.member[2]=0xa44a08d3f6933c69212114bb66e2df1813651844 [true, 2, four, false]
 RESULT: dao.numberOfProposals=1
 RESULT: dao.getProposal[0]=["0","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976",false,"payment to ac2"] ["0x0000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0x0000000000000000000000000000000000000000","12000000000000000000"] ["0","0","0","0","0x0000000000000000000000000000000000000000",true]
-RESULT: NewProposal 0 #21412 {"amount":"12000000000000000000","proposalId":"0","proposalType":"0","proposer":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","recipient":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","tokenContract":"0x0000000000000000000000000000000000000000"}
+RESULT: NewProposal 0 #25 {"amount":"12000000000000000000","proposalId":"0","proposalType":"0","proposer":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","recipient":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","tokenContract":"0x0000000000000000000000000000000000000000"}
 undefined
 > 
-RESULT: tokenContractAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
-RESULT: token.owner=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: tokenContractAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
+RESULT: token.owner=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: token.newOwner=0x0000000000000000000000000000000000000000
 RESULT: token.symbol=DFF
 RESULT: token.name=Doofus Dongers
@@ -885,7 +878,7 @@ RESULT: token.decimals=18
 RESULT: token.totalSupply=401000
 RESULT: token.transferable=true
 RESULT: token.mintable=true
-RESULT: token.minter=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: token.minter=0xf4441f10804b35b13bad1e664e32237773276253
 undefined
 > 
 RESULT: 
@@ -909,10 +902,10 @@ undefined
 > 
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
-RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.012016264000000000           0.000000000000000000 Account #0 - Miner
-RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.011737787000000000           0.000000000000000000 Account #1 - Contract Owner
-RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       11.999790505000000000      200000.000000000000000000 Account #2
-RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.000068982000000000      200000.000000000000000000 Account #3
+RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.012344805000000000           0.000000000000000000 Account #0 - Miner
+RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433     -100.012078431000000000           0.000000000000000000 Account #1 - Contract Owner
+RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       11.999802504000000000      200000.000000000000000000 Account #2
+RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.000068878000000000      200000.000000000000000000 Account #3
 RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844        0.000000000000000000        1000.000000000000000000 Account #4
 RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea        0.000000000000000000           0.000000000000000000 Account #5
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9        0.000000000000000000           0.000000000000000000 Account #6
@@ -921,11 +914,11 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0xa5e1536e89cf7aea3ffcd0861f49ae6f329fda40        0.000000000000000000           0.000000000000000000 BTTS Library
-RESULT: 13 0x657710d178b1d8f18c3e18df219fdafa75704b3b        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
-RESULT: 14 0x7d470e6fe08230e3776510a75a9d4876f4374a9e        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
-RESULT: 15 0x0cf3878bc4254ca8efd7c7ef82404f58c1a26c6e        0.000000000000000000           0.000000000000000000 DAO Library - Members
-RESULT: 16 0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7       88.000000000000000000           0.000000000000000000 DFF DAO
+RESULT: 12 0x90d8927407c79c4a28ee879b821c76fc9bcc2688        0.000000000000000000           0.000000000000000000 BTTS Library
+RESULT: 13 0x0e946b999033257976aa5cbe0e3530618ca1582d        0.000000000000000000           0.000000000000000000 BTTSTokenFactory
+RESULT: 14 0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2        0.000000000000000000           0.000000000000000000 Token 'DFF' 'Doofus Dongers'
+RESULT: 15 0xe6ada9beed6e24be4c0259383db61b52bfca85f3        0.000000000000000000           0.000000000000000000 DAO Library - Members
+RESULT: 16 0xf4441f10804b35b13bad1e664e32237773276253       88.000000000000000000           0.000000000000000000 DFF DAO
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                401000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -935,13 +928,13 @@ undefined
 RESULT: PASS Vote - Ether Payment Proposal - ac3 dao.voteYes(proposal 0)
 1
 > 
-RESULT: vote1_1Tx status=0x1 Success gas=300000 gasUsed=68982 costETH=0.000068982 costUSD=0.0352394547 @ ETH/USD=510.85 gasPrice=1 gwei block=21415 txIx=0 txId=0xc50c0a7033d6d5e5fa63e77cca37853b2ad14e0739e9a01973e95e5ff45e403e @ 1523958234 Tue, 17 Apr 2018 09:43:54 UTC
+RESULT: vote1_1Tx status=0x1 Success gas=300000 gasUsed=68878 costETH=0.000068878 costUSD=0.04568539984 @ ETH/USD=663.28 gasPrice=1 gwei block=26 txIx=0 txId=0x4b4abf39ed3e9e6393ea989846d9ee282c50de4d15dd0e7641c2ab1f2862da71 @ 1524968307 Sun, 29 Apr 2018 02:18:27 UTC
 undefined
 > 
-RESULT: daoContractAddress=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: daoContractAddress=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: dao.owner=0x0000000000000000000000000000000000000000
 RESULT: dao.newOwner=0x0000000000000000000000000000000000000000
-RESULT: dao.bttsToken=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
+RESULT: dao.bttsToken=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
 RESULT: dao.initialised=true
 RESULT: dao.numberOfMembers=3
 RESULT: dao.getMembers=["0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0","0xa44a08d3f6933c69212114bb66e2df1813651844"]
@@ -950,12 +943,12 @@ RESULT: dao.member[1]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 [true, 1, three
 RESULT: dao.member[2]=0xa44a08d3f6933c69212114bb66e2df1813651844 [true, 2, four, false]
 RESULT: dao.numberOfProposals=1
 RESULT: dao.getProposal[0]=["0","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976",false,"payment to ac2"] ["0x0000000000000000000000000000000000000000","0x0000000000000000000000000000000000000000","0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","0x0000000000000000000000000000000000000000","12000000000000000000"] ["0","0","0","1","0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0",false]
-RESULT: Voted 0 #21415 {"governor":false,"governorVotedNo":"0","governorVotedYes":"1","memberVotedNo":"0","memberVotedYes":"0","proposalId":"0","vote":true,"voter":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
-RESULT: EtherPaid 0 #21415 {"amount":"12000000000000000000","proposalId":"0","recipient":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","sender":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
+RESULT: Voted 0 #26 {"governor":false,"governorVotedNo":"0","governorVotedYes":"1","memberVotedNo":"0","memberVotedYes":"0","proposalId":"0","vote":true,"voter":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
+RESULT: EtherPaid 0 #26 {"amount":"12000000000000000000","proposalId":"0","recipient":"0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976","sender":"0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0"}
 undefined
 > 
-RESULT: tokenContractAddress=0x7d470e6fe08230e3776510a75a9d4876f4374a9e
-RESULT: token.owner=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: tokenContractAddress=0xbcd68847ca1a2a2736cb8a4e83312c20e760b4e2
+RESULT: token.owner=0xf4441f10804b35b13bad1e664e32237773276253
 RESULT: token.newOwner=0x0000000000000000000000000000000000000000
 RESULT: token.symbol=DFF
 RESULT: token.name=Doofus Dongers
@@ -963,7 +956,7 @@ RESULT: token.decimals=18
 RESULT: token.totalSupply=401000
 RESULT: token.transferable=true
 RESULT: token.mintable=true
-RESULT: token.minter=0x7f3caaa41b649ae4a478bc2f29b2e81ed6484fe7
+RESULT: token.minter=0xf4441f10804b35b13bad1e664e32237773276253
 undefined
 > 
 RESULT: 
