@@ -5,12 +5,25 @@ import dffdao from '../../ethereum/dffdao';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 import web3 from '../../ethereum/web3';
-import provider from '../../ethereum/providers';
-import { SourceEnum, Providers } from '../../ethereum/providers';
+import Providers from '../../ethereum/providers';
+import { SourceEnum } from '../../ethereum/providers';
 import Members from '../../ethereum/Members';
 
 
-class AccountsIndex extends Component {	
+class AccountsIndex extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			loading: false,
+			accounts: props.accounts,
+			providers: props.providers
+		};
+	}
+	
+	static async getInitialProps() {
+		var accounts = await AccountsIndex.getAccounts();
+		return { accounts: accounts, providers: new Providers(SourceEnum.JSONRPC) };
+	}
 	
 	/*
 	 * Return all accounts associated with the current provider
@@ -25,50 +38,40 @@ class AccountsIndex extends Component {
 		return accounts;
 	}
 	
-	static async getInitialProps() {
-		var accounts = await AccountsIndex.getAccounts();
-		return { accounts };
-	}
-	
-	handleItemSelection(event, data) {
+	handleItemSelection = async (event, data) => {
+		event.preventDefault();
 		console.log('list item clicked ', data.content);
-		web3.selectedSigner = data.content;
-		switch (SourceEnum[data.content]) {
-			case SourceEnum.METAMASK: 
-				//
-				break;
-			case SourceEnum.MIST:
-				break;
-			case SourceEnum.LEDGER:
-				break;
-			case SourceEnum.JSONRPC:
-				console.log('JSONRPC selected');
-				break;
-			default:
-				console.log('nothing');
-		};
+		var providers = new Providers(this.state.providers.selectedSigner);
+		providers.selectProvider(data.content);
+		// Get accounts for new selection
+		var accounts = await AccountsIndex.getAccounts();
+		this.setState({ loading: false, accounts: accounts, providers: providers });
 	}
 
 	render() {
-		const { accounts } = this.props;
+		//const { accounts } = this.props;
+		//console.log('class: ', new Providers());
 		
+		var providers = new Providers(this.state.providers.selectedSigner);
+		console.log('render ', providers);
 		var sourceItems = [];
-		var sources = (new Providers()).sources();
+		var sources = providers.sources();
 		for (let s in sources) {
 			var srcObj = sources[s];
 			var renderObj = { key: srcObj.source, content: srcObj.text, as: 'ui' };
-			renderObj.disabled=!srcObj.available;
+			//renderObj.disabled=!srcObj.available;
 			if (srcObj.selected) { renderObj.active=true };
 			sourceItems.push(renderObj);
 			//console.log('s', srcObj, renderObj);
 		}
+		// Convert accounts to a format that can be used as List items 
 		var accountItems = [];
-		console.log('accounts ', accounts);
-		for (let a in accounts) {
-			var renderObj = { key: a, content: accounts[a], as: 'a' };
+		console.log('accounts ', this.state.accounts);
+		for (let a in this.state.accounts) {
+			var renderObj = { key: a, content: this.state.accounts[a], as: 'a' };
 			accountItems.push(renderObj);
 		}
-		console.log(accountItems);
+		//console.log(accountItems);
 		return (
 		<Layout>
 		<div>

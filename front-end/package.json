@@ -11,6 +11,9 @@
   "author": "Geoff Lamperd",
   "license": "ISC",
   "dependencies": {
+    "@ledgerhq/hw-app-eth": "^4.19.0",
+    "@ledgerhq/hw-transport-node-hid": "^4.19.1",
+    "@ledgerhq/web3-subprovider": "^4.20.0",
     "big-number": "^0.4.0",
     "child_process": "^1.0.2",
     "fs": "0.0.1-security",
@@ -21,7 +24,7 @@
     "net": "^1.0.2",
     "next": "^4.1.4",
     "next-routes": "^1.4.1",
-    "npm": "^5.8.0",
+    "npm": "^5.10.0",
     "react": "^16.3.2",
     "react-dom": "^16.2.0",
     "semantic-ui-css": "^2.3.0",
