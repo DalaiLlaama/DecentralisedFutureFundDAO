@@ -6,4 +6,6 @@ const instance = new web3.eth.Contract(
 		'0xf4441f10804b35b13bad1e664e32237773276253'
 );
 
+console.log('dffdao instance', typeof instance);
+
 export default instance;

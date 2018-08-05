@@ -1,22 +1,22 @@
-import web3 from 'web3';
+import web3, { wallets } from './web3';
 import ProviderEngine from 'web3-provider-engine';
 import RpcSubprovider from 'web3-provider-engine/subproviders/rpc.js';
-import Transport from "@ledgerhq/hw-transport-node-hid";
-import AppEth from "@ledgerhq/hw-app-eth";
+//import Transport from "@ledgerhq/hw-transport-node-hid";
+//import AppEth from "@ledgerhq/hw-app-eth";
 //import ganache from 'ganache-cli';
 
 
 export const SourceEnum = {
-		METAMASK: "MetaMask",
-		MIST: "Mist",
-		LEDGER: "Ledger",
-		JSONRPC: "RPC"
+	METAMASK: "MetaMask",
+	MIST: "Mist",
+	LEDGER: "Ledger",
+	JSONRPC: "RPC"
 };
 	
 
 export class Providers {
 	
-	constructor (signer) {
+	constructor(signer) {
 		this.selectedSigner = signer;
 	}
 
@@ -44,7 +44,7 @@ export class Providers {
 			); */
 			return false;
 		} else {
-			console.log('window or currentProvider undefined', typeof window == 'undefined', web3.currentProvider);
+			console.log('window or currentProvider undefined', typeof window == 'undefined');
 			return false;
 		}
 			
@@ -54,7 +54,7 @@ export class Providers {
 	 * Return an array of all source names, each with a flag indicating whether it is available.
 	 */
 	sources() {
-		console.log('Providers:', web3.givenProvider);
+		console.log('Providers:', typeof web3.givenProvider);
 		let sourceArr = [];
 		for (let s in SourceEnum) {
 			let source = {source: s, text: SourceEnum[s], available:this.isAvailable(s), selected: SourceEnum[s]===this.selectedSigner};
@@ -98,14 +98,23 @@ export class Providers {
 		};
 	}
 	
-	ledgerSigner {
-		const getEthAddress = async () => {
+	// Return a web3 provider that will be used to access 
+	// accounts and sign transactions
+	getWallet() {
+		console.log('getWallet ');
+		if (typeof wallets === 'undefined') {console.log('wallets not defined'); return null};
+		return wallets[this.selectedSigner];
+	}
+	
+	ledgerSigner() {
+		/*const getEthAddress = async () => {
 		  const transport = await Transport.create();
 		  const eth = new AppEth(transport);
 		  const result = await eth.getWalletPublicKey("44'/0'/0'/0/0");
 		  return result.ethernetAddress;
 		};
 		getEthAddress().then(a => console.log(a));
+		*/
 	}
 }
 

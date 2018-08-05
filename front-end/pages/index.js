@@ -7,7 +7,10 @@ import dffdao from '../ethereum/dffdao';
 
 class DffDaoIndex extends Component {
 	static async getInitialProps(props) {
-		const tokenAddress = await dffdao.methods.bttsToken().call();
+		console.log('/ getInitialProps');
+		//console.log('(init)tokenAddress promise:', p);
+		var tokenAddress = await dffdao.methods.bttsToken().call();
+		console.log('(init)tokenAddress:', typeof tokenAddress);
 		const tokenDecimals = await dffdao.methods.TOKEN_DECIMALS().call();
 		var tokensGov = await dffdao.methods.tokensForNewGoverningMembers().call();
 		var tokensMem = await dffdao.methods.tokensForNewMembers().call();
@@ -27,6 +30,7 @@ class DffDaoIndex extends Component {
 			tokensGov,
 			tokensMem
 		} = this.props;
+		console.log('render', props);
 		
 		return (
 		<Layout>

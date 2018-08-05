@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import { Input, Menu, Icon, Label, List } from 'semantic-ui-react';
-import dffdao from '../../ethereum/dffdao';
+//import dffdao from '../../ethereum/dffdao';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
-import web3 from '../../ethereum/web3';
-import Providers from '../../ethereum/providers';
-import { SourceEnum } from '../../ethereum/providers';
+//import web3 from '../../ethereum/web3';
+import Providers, { SourceEnum } from '../../ethereum/providers';
 import Members from '../../ethereum/Members';
 
 
@@ -21,20 +20,27 @@ class AccountsIndex extends Component {
 	}
 	
 	static async getInitialProps() {
-		var accounts = await AccountsIndex.getAccounts();
-		return { accounts: accounts, providers: new Providers(SourceEnum.JSONRPC) };
+		var providers = new Providers(SourceEnum.JSONRPC);
+		var accounts = await AccountsIndex.getAccounts(providers);
+		return { accounts: accounts, providers:  providers};
 	}
 	
 	/*
 	 * Return all accounts associated with the current provider
 	 */
-	static getAccounts() {
-		var accounts = web3.eth.getAccounts().then(
-			(resolved) => {
-				console.log('resolved', resolved);
-				return resolved;
-			}
-		);
+	static getAccounts(providers) {
+		console.log('getAccounts() ', providers); 
+		//var providers = new Providers(this.state.providers.selectedSigner);
+		var w3 = providers.getWallet();
+		console.log('got wallet:', w3);
+		var accounts;
+		if (typeof w3 !== 'undefined') {
+			accounts = w3.eth.getAccounts().then(
+			    (resolved) => {
+				    console.log('get accounts resolved', resolved);
+				    return resolved;
+			    });
+	    }
 		return accounts;
 	}
 	
@@ -44,7 +50,7 @@ class AccountsIndex extends Component {
 		var providers = new Providers(this.state.providers.selectedSigner);
 		providers.selectProvider(data.content);
 		// Get accounts for new selection
-		var accounts = await AccountsIndex.getAccounts();
+		var accounts = await AccountsIndex.getAccounts(providers);
 		this.setState({ loading: false, accounts: accounts, providers: providers });
 	}
 
