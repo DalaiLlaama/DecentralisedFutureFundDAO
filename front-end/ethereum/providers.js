@@ -1,4 +1,5 @@
 import web3, { wallets } from './web3';
+import Web3 from 'web3';
 import ProviderEngine from 'web3-provider-engine';
 import RpcSubprovider from 'web3-provider-engine/subproviders/rpc.js';
 //import Transport from "@ledgerhq/hw-transport-node-hid";
@@ -18,6 +19,7 @@ export class Providers {
 	
 	constructor(signer) {
 		this.selectedSigner = signer;
+		global.SelectedSigner = signer;
 	}
 
 	/*
@@ -65,9 +67,10 @@ export class Providers {
 	}
 	
 	selectProvider(newProvider) {
-		console.log('switch to ', newProvider, ' from ', web3.currentProvider, web3.givenProvider);
+		//console.log('switch to ', newProvider, ' from ', web3.currentProvider, web3.givenProvider);
 		this.selectedSigner = newProvider;
-		switch (newProvider) {
+		global.selectedSigner = newProvider;
+		/*switch (newProvider) {
 		  case SourceEnum.METAMASK: 
 			// Switch to metamask
 			if (this.selectedSigner !== SourceEnum.METAMASK && web3.givenProvider.isMetaMask) {
@@ -91,18 +94,25 @@ export class Providers {
 			console.log('in JSONRPC ', window.web3.version);
 			//web3.reset();
 			window.web3.setProvider(engine);
-			console.log('switched to RPC: ', window.web3.currentProvider);
+			console.log('switched to RPC: '); //, window.web3.currentProvider);
 			break;
 		  default:
 			console.log('Unrecognised provider');
 		};
+		*/
 	}
 	
 	// Return a web3 provider that will be used to access 
 	// accounts and sign transactions
 	getWallet() {
-		console.log('getWallet ');
+		console.log('getWallet ', wallets);
 		if (typeof wallets === 'undefined') {console.log('wallets not defined'); return null};
+		if ((this.selectedSigner === SourceEnum.METAMASK || this.selectedSigner === SourceEnum.MIST) &&
+			typeof wallets[this.selectedSigner] === 'undefined'	) {
+			// Injected provider not already assigned. Do it now.
+			wallets[this.selectedSigner] = new Web3(window.web3.currentProvider);
+		}
+		console.log('has wallet for signer? ', typeof wallets[this.selectedSigner]);
 		return wallets[this.selectedSigner];
 	}
 	

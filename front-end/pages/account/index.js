@@ -6,7 +6,7 @@ import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 //import web3 from '../../ethereum/web3';
 import Providers, { SourceEnum } from '../../ethereum/providers';
-import Members from '../../ethereum/Members';
+//import Members from '../../ethereum/Members';
 
 
 class AccountsIndex extends Component {
@@ -20,7 +20,9 @@ class AccountsIndex extends Component {
 	}
 	
 	static async getInitialProps() {
-		var providers = new Providers(SourceEnum.JSONRPC);
+		console.log('global.selectedSIgner', global.selectedSigner);
+		var selectedSigner = global.selectedSigner || SourceEnum.JSONRPC; 
+		var providers = new Providers(selectedSigner);
 		var accounts = await AccountsIndex.getAccounts(providers);
 		return { accounts: accounts, providers:  providers};
 	}
@@ -32,11 +34,15 @@ class AccountsIndex extends Component {
 		console.log('getAccounts() ', providers); 
 		//var providers = new Providers(this.state.providers.selectedSigner);
 		var w3 = providers.getWallet();
-		console.log('got wallet:', w3);
+		console.log('got wallet:', typeof w3.eth);
 		var accounts;
 		if (typeof w3 !== 'undefined') {
 			accounts = w3.eth.getAccounts().then(
-			    (resolved) => {
+			     (resolved, error) => {
+			    	if (error) {
+			    		console.log('error in getAccounts()');
+			    		return [];
+			    	}
 				    console.log('get accounts resolved', resolved);
 				    return resolved;
 			    });
