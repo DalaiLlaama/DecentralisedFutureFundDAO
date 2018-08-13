@@ -11,6 +11,3 @@ front-end/node_modules/*
 /build/
 front-end/.next
 front-end/.next/*
-front-end/.next/6.617411bdd0e66e839a24.hot-update.js
-
-front-end/.next/manifest.js

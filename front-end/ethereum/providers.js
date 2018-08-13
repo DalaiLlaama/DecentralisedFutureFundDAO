@@ -2,6 +2,7 @@ import web3, { wallets } from './web3';
 import Web3 from 'web3';
 import ProviderEngine from 'web3-provider-engine';
 import RpcSubprovider from 'web3-provider-engine/subproviders/rpc.js';
+//import storage from 'redux-persist/lib/storage';
 //import Transport from "@ledgerhq/hw-transport-node-hid";
 //import AppEth from "@ledgerhq/hw-app-eth";
 //import ganache from 'ganache-cli';
@@ -19,7 +20,7 @@ export class Providers {
 	
 	constructor(signer) {
 		this.selectedSigner = signer;
-		global.SelectedSigner = signer;
+		//storage.SelectedSigner = signer;
 	}
 
 	/*
@@ -56,20 +57,21 @@ export class Providers {
 	 * Return an array of all source names, each with a flag indicating whether it is available.
 	 */
 	sources() {
-		console.log('Providers:', typeof web3.givenProvider);
+		//console.log('Providers:', typeof web3.givenProvider);
 		let sourceArr = [];
 		for (let s in SourceEnum) {
 			let source = {source: s, text: SourceEnum[s], available:this.isAvailable(s), selected: SourceEnum[s]===this.selectedSigner};
 			sourceArr.push(source);
 		}
-		console.log(sourceArr);
+		//console.log(sourceArr);
 		return sourceArr;
 	}
 	
 	selectProvider(newProvider) {
-		//console.log('switch to ', newProvider, ' from ', web3.currentProvider, web3.givenProvider);
+		console.log('switch to ', newProvider);
 		this.selectedSigner = newProvider;
-		global.selectedSigner = newProvider;
+		//storage.selectedSigner = newProvider;
+		
 		/*switch (newProvider) {
 		  case SourceEnum.METAMASK: 
 			// Switch to metamask
@@ -105,7 +107,7 @@ export class Providers {
 	// Return a web3 provider that will be used to access 
 	// accounts and sign transactions
 	getWallet() {
-		console.log('getWallet ', wallets);
+		//console.log('getWallet ', wallets);
 		if (typeof wallets === 'undefined') {console.log('wallets not defined'); return null};
 		if ((this.selectedSigner === SourceEnum.METAMASK || this.selectedSigner === SourceEnum.MIST) &&
 			typeof wallets[this.selectedSigner] === 'undefined'	) {
