@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 
 import { Input, Menu, Icon, Label, List } from 'semantic-ui-react';
 //import dffdao from '../../ethereum/dffdao';
-import Layout from '../../components/Layout';
-import Sources from '../../components/Sources';
 import { Link } from '../../routes';
 //import web3 from '../../ethereum/web3';
 import Providers, { SourceEnum } from '../../ethereum/providers';
 import { Provider, connect } from 'react-redux';
+
 import storeFactory from '../../configureStore';
+import Layout from '../../components/Layout';
+import Sources from '../../components/Sources';
+import Accounts from '../../components/Accounts';
+import { getAccounts } from '../../actions/actions';
 
 const { store, persistor } = storeFactory();
 
@@ -16,35 +19,34 @@ const { store, persistor } = storeFactory();
 
 const mapStateToProps = (state) => {
 
-	const accounts = state.accounts.accounts;
-	// Convert accounts to a format that can be used as List items 
-	var accountItems = [];
-	console.log('accounts ', accounts);
-	for (let a in accounts) {
-		var renderObj = { key: a, content: accounts[a], as: 'a' };
-		accountItems.push(renderObj);
-	}
-	
-	console.log('state.selecetdSigner', state.provider.selectedSigner);
-	return { //signers: sourceItems,
+	console.log('state.selectedSigner', state.provider.selectedSigner);
+	return { 
 			 selectedSigner: state.provider.selectedSigner,
-			 accounts: accountItems
+			 accounts: state.accounts.accounts
 		};
 };
 
 const mapDispatchersToProps = (dispatch) => {
 	return {
-		onSignerClick: (id) => {
-			console.log('onSignerClick:', id);
+		onSignerClick: (prov) => {
+			console.log('onSignerClick:', prov);
 			dispatch({
 				type: 'SET_SIGNER',
-				text: id
+				text: prov
+			});
+			dispatch(getAccounts(prov));
+		},
+		setAccounts: (acc) => {
+			dispatch({
+				type: 'SET_ACCOUNTS',
+				text: acc
 			})
 		}
 	}
 }
 
 const ConnectedSources = connect(mapStateToProps, mapDispatchersToProps)(Sources);
+const ConnectedAccounts = connect(mapStateToProps, mapDispatchersToProps)(Accounts);
 
 class AccountsIndex extends Component {
 	constructor(props, context) {
@@ -56,13 +58,6 @@ class AccountsIndex extends Component {
 		};*/
 		console.log('AccountsIndex context ', props);
 	}
-	
-	/*static async getInitialProps() {
-		//console.log('store.getState()', store);
-		var selectedSigner = SourceEnum.JSONRPC; //store.selectedSigner || SourceEnum.JSONRPC;
-		var providers = new Providers(selectedSigner);
-		return { accounts, providers, selectedSigner};
-	} */
 	
 	/*
 	 * Return all accounts associated with the current provider
@@ -96,13 +91,7 @@ class AccountsIndex extends Component {
 		   <div>
 			<h3>Account Settings</h3>
 			<ConnectedSources  selectedSigner={this.props.selectedSigner}/>
-			<h1>Select an account</h1>
-			<List
-				items={ this.props.accounts }
-				selection
-				horizontal
-				size='small'
-			/>
+			<ConnectedAccounts />
 		   </div>
 		  </Layout>
 		</Provider>
