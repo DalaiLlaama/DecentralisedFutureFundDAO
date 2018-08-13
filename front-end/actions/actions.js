@@ -8,14 +8,19 @@ function requestAccounts(providers) {
 	}
 }
 
-export const ACCOUNTS_RECEIVED = 'SET_ACCOUNTS';
+export const SET_ACCOUNTS = 'SET_ACCOUNTS';
 function accountsReceived(accounts) {
 	return {
-		type: ACCOUNTS_RECEIVED,
+		type: SET_ACCOUNTS,
 		text: accounts
 	}
 }
 
+/*
+ * Gets accounts from the selected web3 provider.
+ * The call is asynchronous. When returned, the 
+ * accounts list will be handled by the accountsReceived action.
+ */
 export function getAccounts(signer) {
 	
 	return function (dispatch) {

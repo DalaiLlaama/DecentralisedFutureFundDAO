@@ -4,7 +4,6 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import { combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-//import { getAccounts } from './actions/actions';
 import providerReducer from './reducers/providers'
 import accountsIndexReducer from './reducers/accountsindex'
 
