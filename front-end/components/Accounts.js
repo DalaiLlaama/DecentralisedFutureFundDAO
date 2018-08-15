@@ -26,7 +26,6 @@ class Accounts extends Component {
 		for (let a in accounts) {
 			var renderObj = { key: a, content: accounts[a], as: 'a' };
 			if (accounts[a] === this.props.selectedAccount) {
-				console.log('found selectedAccount');
 				renderObj.active = true;
 			}
 			accountItems.push(renderObj);

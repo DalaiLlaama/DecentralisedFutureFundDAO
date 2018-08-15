@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
+//import { Provider } from 'react-redux';
 import Head from 'next/head';
 import Header from './Header';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -18,7 +19,7 @@ export default props => {
 					href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.12/semantic.min.css" 
 				/>
 			  </Head>
-		    <Header />
+		      <Header store={store}/>
 		    {props.children}
 		  </PersistGate>
 		</Container>

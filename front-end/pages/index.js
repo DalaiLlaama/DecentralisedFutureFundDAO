@@ -30,7 +30,7 @@ class DffDaoIndex extends Component {
 			tokensGov,
 			tokensMem
 		} = this.props;
-		console.log('render', props);
+		console.log('render', this.props);
 		
 		return (
 		<Layout>

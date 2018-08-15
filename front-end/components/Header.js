@@ -1,14 +1,43 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from '../routes';
+import { Provider, connect } from 'react-redux';
 
-export default class SiteMenu extends Component {
-  state = { activeItem: 'home' }
+import storeFactory from '../configureStore';
+const { store, persistor } = storeFactory();
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+const mapStateToProps = (state) => {
+	return { 
+		 activeItem: state.menu.activeItem
+		};
+};
+
+const mapDispatchersToProps = (dispatch) => {
+	return {
+		onMenuClick: (page) => {
+			console.log('onMenuClick ', page);
+			dispatch({
+				type: 'NEW_PAGE',
+				text: page
+			});
+		}
+	}
+}
+
+
+class SiteMenu extends Component {
+  //state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => {
+	  
+	  this.props.onMenuClick(name);
+	  console.log('handleItemClick ', name);
+	//this.setState({ activeItem: name })
+  }
 
   render() {
-	const { activeItem } = this.state  
+	const { activeItem } = this.props;
+	console.log('menu active item: ', activeItem);
   
 	return (
 	  <div>
@@ -63,3 +92,5 @@ export default class SiteMenu extends Component {
 	)
   }
 }
+
+export default connect(mapStateToProps, mapDispatchersToProps)(SiteMenu);

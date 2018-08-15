@@ -4,15 +4,19 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import { combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import providerReducer from './reducers/providers'
-import accountsIndexReducer from './reducers/accountsindex'
+import providerReducer from './reducers/providers';
+import accountsIndexReducer from './reducers/accountsindex';
+import menuReducer from './reducers/menu';
 
 const persistConfig = {
   key: 'root',
   storage,
 }
 
-const reducers = combineReducers({ provider: providerReducer, accounts: accountsIndexReducer });
+const reducers = combineReducers({ 
+	provider: providerReducer, 
+	accounts: accountsIndexReducer,
+	menu: menuReducer });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
