@@ -3,6 +3,9 @@ import ProviderEngine from 'web3-provider-engine';
 import RpcSubprovider from 'web3-provider-engine/subproviders/rpc.js';
 //import SourceEnum from './providers';
 //import ganache from 'ganache-cli';
+import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
+import TransportU2F from "@ledgerhq/hw-transport-u2f";
+import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
 //console.log(Web3);
 
@@ -29,10 +32,22 @@ if (typeof window !== 'undefined' && window.web3.currentProvider !== 'undefined'
 
 //Set up ledger connection ??? Is this the right place?
 //TODO - move code here from providers
-wallets[SourceEnum.LEDGER] = null;
+const rpcUrl = "http://127.0.0.1:8545";
+const networkId = 1337;
+
+let engine = new ProviderEngine();
+const getTransport = () => TransportU2F.create();
+const ledger = createLedgerSubprovider(getTransport, {
+    networkId,
+    accountsLength: 5
+  });
+engine.addProvider(ledger);
+engine.addProvider(new FetchSubprovider({ rpcUrl }));
+engine.start();
+wallets[SourceEnum.LEDGER] = new Web3(engine);
 
 // Set up RPC connection
-let engine = new ProviderEngine();
+engine = new ProviderEngine();
 const provider = new RpcSubprovider(
 		{ rpcUrl: 'http://localhost:8646', }
 	);

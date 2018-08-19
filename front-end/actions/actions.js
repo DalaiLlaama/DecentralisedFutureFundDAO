@@ -32,6 +32,7 @@ export function getAccounts(signer) {
 		//console.log('got wallet:', typeof w3.eth);
 		var accounts;
 		if (typeof w3 !== 'undefined') {
+		  if (SourceEnum[providers.selectedSigner] !== SourceEnum.Ledger) {
 			return w3.eth.getAccounts()
 				.then(
 				     (response, error) => {
@@ -45,6 +46,13 @@ export function getAccounts(signer) {
 				 .then((accounts) =>
 					dispatch(accountsReceived(accounts))
 				 );
+		  } else {
+			  // Ledger
+			  console.log('getAccounts, Ledger');
+			  providers.ledgerAddress().then(a =>
+				  dispatch(accountsReceived([a]))
+			  );
+		  }
 	    }
 	}
 }

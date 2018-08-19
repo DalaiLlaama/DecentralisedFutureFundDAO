@@ -2,11 +2,9 @@ import web3, { wallets } from './web3';
 import Web3 from 'web3';
 import ProviderEngine from 'web3-provider-engine';
 import RpcSubprovider from 'web3-provider-engine/subproviders/rpc.js';
-//import storage from 'redux-persist/lib/storage';
-//import Transport from "@ledgerhq/hw-transport-node-hid";
-//import AppEth from "@ledgerhq/hw-app-eth";
-//import ganache from 'ganache-cli';
-
+import AppEth from "@ledgerhq/hw-app-eth";
+import Transport from "@ledgerhq/hw-transport-u2f";
+import createLedgerSubprovider from "@ledgerhq/web3-subprovider";
 
 export const SourceEnum = {
 	METAMASK: "MetaMask",
@@ -20,7 +18,6 @@ export class Providers {
 	
 	constructor(signer) {
 		this.selectedSigner = signer;
-		//storage.SelectedSigner = signer;
 	}
 
 	/*
@@ -118,15 +115,16 @@ export class Providers {
 		return wallets[this.selectedSigner];
 	}
 	
-	ledgerSigner() {
-		/*const getEthAddress = async () => {
+	ledgerAddress= async () => {
+		const getEthAddress = async () => {
 		  const transport = await Transport.create();
 		  const eth = new AppEth(transport);
 		  const result = await eth.getWalletPublicKey("44'/0'/0'/0/0");
 		  return result.ethernetAddress;
 		};
-		getEthAddress().then(a => console.log(a));
-		*/
+		const addr = await getEthAddress();
+		console.log('ledgerAddress', addr);
+		return addr;
 	}
 }
 
