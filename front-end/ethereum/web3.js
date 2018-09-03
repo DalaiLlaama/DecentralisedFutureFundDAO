@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import ProviderEngine from 'web3-provider-engine';
 import RpcSubprovider from 'web3-provider-engine/subproviders/rpc.js';
+import Personal from 'web3-eth-personal';
 //import SourceEnum from './providers';
 //import ganache from 'ganache-cli';
 import FetchSubprovider from "web3-provider-engine/subproviders/fetch";
@@ -59,6 +60,8 @@ wallets[SourceEnum.JSONRPC] = new Web3(engine);
 // Default provider is RPC
 let web3 = wallets[SourceEnum.JSONRPC];
 
-console.log('init web3 @', typeof web3);
+export const personal = new Personal(web3.givenProvider);
+console.log('init web3 @', typeof personal);
+
 //console.log('wallets', wallets);
 export default web3;

@@ -3,6 +3,7 @@ import { Link } from '../routes';
 import { Button, Table, Card, Grid, Segment, Label, Icon, Statistic, Container } from 'semantic-ui-react';
 import dffdao from '../ethereum/dffdao';
 import web3 from '../ethereum/web3';
+//import personal from 'web3-eth-personal';
 
 class Proposal extends Component {
 	state = {
@@ -16,25 +17,41 @@ class Proposal extends Component {
 			this.setState({ loading: true, errorMessage: '' });
 
 			try {
+				console.log('Proposal.onSubmit', isYes, 'prop', this.props.proposal.id, 'acc', this.props.selectedAccount);
+				//const accounts = await web3.eth.getAccounts();
 				
-				const accounts = await web3.eth.getAccounts();
+				console.log('web3.personal ', web3.personal);
+				// Unlock account (if using geth as wallet)
+				await personal.unlockAccount(this.props.selectedAccount, "", 60);
+				console.log('account unlocked');
+				
+				var txHash;
 				if (isYes) {
-					await dffdao.methods
+					dffdao.methods
 						.voteYes(this.props.proposal.id)
 						.send({
-							from: accounts[0]
-						});
+							from: this.props.selectedAccount
+						})
+						.then((hash, err) => {
+							if (err) {
+								console.log('Error sending vote transaction:', err.message);
+							} else {
+								console.log('vote tx returned', hash);
+								txHash = hash;
+							}
+						})
 				} else {
-					await dffdao.methods
+					txHash = await dffdao.methods
 					.voteNo(this.props.proposal.id)
 					.send({
-						from: accounts[0]
+						from: this.props.selectedAccount
 					});
 					
 				}
-				
-				Router.pushRoute('/');
+				console.log('vote transaction sent');
+				//Router.pushRoute('/');
 			} catch (err) {
+				console.log('Error sending transaction ', err.message);
 				this.setState({errorMessage: err.message});
 			}
 			this.setState({ loading: false })

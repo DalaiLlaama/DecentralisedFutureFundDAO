@@ -122,7 +122,7 @@ export class Providers {
 		  const result = await eth.getWalletPublicKey("44'/0'/0'/0/0");
 		  return result.ethernetAddress;
 		};
-		const addr = await getEthAddress();
+		const addr = ''; //await getEthAddress();
 		console.log('ledgerAddress', addr);
 		return addr;
 	}

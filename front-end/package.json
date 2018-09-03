@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "dev": "node httpsserver.js",
+    "dev": "node server.js",
     "start": "node server.js"
   },
   "author": "Geoff Lamperd",

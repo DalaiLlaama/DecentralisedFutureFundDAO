@@ -8,8 +8,40 @@ import Members from '../../ethereum/Members';
 import BigNumber from 'big-number';
 import web3 from '../../ethereum/web3';
 
+
+import Providers, { SourceEnum } from '../../ethereum/providers';
+import { Provider, connect } from 'react-redux';
+
+import storeFactory from '../../configureStore';
+
+const { store, persistor } = storeFactory();
+
+const mapStateToProps = (state) => {
+
+	console.log('state.selectedAccount', state.accounts.selectedAccount);
+	return { 
+			 selectedSigner: state.provider.selectedSigner,
+			 selectedAccount: state.accounts.selectedAccount
+		};
+};
+
+const mapDispatchersToProps = (dispatch) => {
+	return {
+		onVoteClick: (vote) => {
+			console.log('onVoteClick:', vote);
+			dispatch({
+				type: 'SET_VOTE',
+				text: vote
+			});
+		}
+	}
+}
+
+const ConnectedProposal = connect(mapStateToProps, mapDispatchersToProps)(Proposal);
+
+
 class ProposalShow extends Component {
-	state = {
+	/*state = {
 			value: '',
 			errorMessage: '',
 			loading: false,
@@ -17,7 +49,7 @@ class ProposalShow extends Component {
 			proposal: {},
 			members: {}
 		};
-	
+	*/
 	/**
 	 * Called on selection of page in the Pagination controller
 	 * N.B. Pagination controller starts at 1, whereas proposals in the contract are indexed from 0.
@@ -98,14 +130,16 @@ class ProposalShow extends Component {
 	}
 	
 	render () {
-	    const { activeProposal } = this.state
+	    const { activeProposal } = 0; //this.state
 	    const { numberOfProposals, proposal } = this.props;
 	    console.log('index render()');
 
 	    return (
-		<Layout>
+  		  <Layout store={store}>
+		   <Provider store={store}>
+		    <div>
 			<Pagination 
-				defaultActivePage={this.state.activeProposal} 
+				defaultActivePage={0} //this.state.activeProposal} 
 				totalPages={this.props.numberOfProposals} 
 				onPageChange={this.handlePaginationChange} 
 			/>
@@ -119,7 +153,9 @@ class ProposalShow extends Component {
 				  />
 				</a>
 			</Link>
-			<Proposal proposal={proposal} />
+			<ConnectedProposal proposal={proposal} />
+			</div>
+		  </Provider>
 		</Layout>
 	    )
 	};

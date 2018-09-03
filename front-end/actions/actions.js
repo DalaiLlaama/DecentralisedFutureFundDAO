@@ -1,10 +1,10 @@
 import Providers, { SourceEnum } from '../ethereum/providers';
 
 export const REQUEST_ACCOUNTS = 'REQUEST_ACCOUNTS';
-function requestAccounts(providers) {
+function requestAccounts(signer) {
 	return {
 		type: REQUEST_ACCOUNTS,
-		providers
+		signer
 	}
 }
 
@@ -24,7 +24,7 @@ function accountsReceived(accounts) {
 export function getAccounts(signer) {
 	
 	return function (dispatch) {
-		dispatch(requestAccounts(signer));
+		//dispatch(requestAccounts(signer));
 		
 		var providers = new Providers(signer);
 		console.log('getAccounts() ', signer); 
@@ -32,7 +32,8 @@ export function getAccounts(signer) {
 		//console.log('got wallet:', typeof w3.eth);
 		var accounts;
 		if (typeof w3 !== 'undefined') {
-		  if (SourceEnum[providers.selectedSigner] !== SourceEnum.Ledger) {
+		  if (signer !== SourceEnum.Ledger) {
+			console.log('getAccounts, not Ledger');
 			return w3.eth.getAccounts()
 				.then(
 				     (response, error) => {
