@@ -11,3 +11,6 @@ front-end/node_modules/*
 /build/
 front-end/.next
 front-end/.next/*
+front-end/privatekey.pem
+*.pem
+*.pvk

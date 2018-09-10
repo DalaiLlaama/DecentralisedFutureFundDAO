@@ -32,7 +32,7 @@ export function getAccounts(signer) {
 		//console.log('got wallet:', typeof w3.eth);
 		var accounts;
 		if (typeof w3 !== 'undefined') {
-		  if (signer !== SourceEnum.Ledger) {
+		  if (signer !== 'Ledger') {
 			console.log('getAccounts, not Ledger');
 			return w3.eth.getAccounts()
 				.then(
