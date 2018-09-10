@@ -14,3 +14,7 @@ front-end/.next/*
 front-end/privatekey.pem
 *.pem
 *.pvk
+*.crt
+*.key
+front-end/package-lock.json
+front-end/localhost.crt
