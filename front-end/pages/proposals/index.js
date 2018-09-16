@@ -21,7 +21,7 @@ const mapStateToProps = (state) => {
 	console.log('state.selectedAccount', state.accounts.selectedAccount);
 	return { 
 			 selectedSigner: state.provider.selectedSigner,
-			 selectedAccount: state.accounts.selectedAccount
+			 selectedAccount: "0xa22AB8A9D641CE77e06D98b7D7065d324D3d6976" //state.accounts.selectedAccount
 		};
 };
 
@@ -55,6 +55,7 @@ class ProposalShow extends Component {
 	 * N.B. Pagination controller starts at 1, whereas proposals in the contract are indexed from 0.
 	 * Hence, subtract 1 to retrieve the correct proposal.
 	 */
+	//TODO: reduxify this
 	handlePaginationChange = async (e, { activeProposal, members }) => {
 		console.log('handlePaginationChange', activeProposal)
 		proposal = ProposalShow.getProposal(activeProposal-1, members);
@@ -76,6 +77,8 @@ class ProposalShow extends Component {
 		
 		const prop = (propCount > 0) ? await ProposalShow.getProposal(0, members) : {};
 		
+		//const selectedAccount = sessionStorage.getItem("selectedAccount");
+		//console.log("getinitprops- selectedAccount: ", selectedAccount);
 		return ({
 			numberOfProposals: propCount,
 			proposal: prop,

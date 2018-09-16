@@ -19,6 +19,7 @@ export default function accountsindex(state = initialState, action) {
 		return Object.assign({}, state, {accounts: [], loading: true});
 	  case 'SELECT_ACCOUNT':
 		console.log('accountsindex SELECT_ACCOUNT', action.text);
+		sessionStorage.setItem("selectedAccount", action.text);
 		return Object.assign({}, state, {selectedAccount: action.text});
 	  default:
 		return state

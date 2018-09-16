@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from '../routes';
 import { Button, Table, Card, Grid, Segment, Label, Icon, Statistic, Container } from 'semantic-ui-react';
 import dffdao from '../ethereum/dffdao';
-import web3 from '../ethereum/web3';
+import { web3, personal } from '../ethereum/web3';
 //import personal from 'web3-eth-personal';
 
 class Proposal extends Component {
@@ -12,6 +12,7 @@ class Proposal extends Component {
 		loading: false
 	};
 		
+	//TODO: reduxify this
 	onSubmit = async (isYes) => {
 			event.preventDefault();
 			this.setState({ loading: true, errorMessage: '' });
@@ -20,11 +21,11 @@ class Proposal extends Component {
 				console.log('Proposal.onSubmit', isYes, 'prop', this.props.proposal.id, 'acc', this.props.selectedAccount);
 				//const accounts = await web3.eth.getAccounts();
 				
-				console.log('web3.personal ', web3.personal);
+				console.log('personal ', personal);
 				// Unlock account (if using geth as wallet)
 				await personal.unlockAccount(this.props.selectedAccount, "", 60);
 				console.log('account unlocked');
-				
+
 				var txHash;
 				if (isYes) {
 					dffdao.methods

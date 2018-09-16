@@ -33,7 +33,7 @@ if (typeof window !== 'undefined' && window.web3.currentProvider !== 'undefined'
 
 //Set up ledger connection ??? Is this the right place?
 //TODO - move code here from providers
-const rpcUrl = "http://127.0.0.1:8545";
+const rpcUrl = "http://localhost:8545";
 const networkId = 1337;
 
 let engine = new ProviderEngine();
@@ -60,7 +60,7 @@ wallets[SourceEnum.JSONRPC] = new Web3(engine);
 // Default provider is RPC
 let web3 = wallets[SourceEnum.JSONRPC];
 
-export const personal = new Personal(web3.givenProvider);
+export const personal = new Personal(wallets[SourceEnum.JSONRPC]);
 console.log('init web3 @', typeof personal);
 
 //console.log('wallets', wallets);

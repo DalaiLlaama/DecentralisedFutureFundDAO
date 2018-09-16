@@ -119,10 +119,12 @@ export class Providers {
 		const getEthAddress = async () => {
 		  const transport = await Transport.create();
 		  const eth = new AppEth(transport);
-		  const result = await eth.getWalletPublicKey("44'/0'/0'/0/0");
-		  return result.ethernetAddress;
+		  console.log('eth:', eth);
+		  const result = await eth.getAddress("m/44'/60'/0'", false, true);
+		  console.log('path:', result);
+		  return result.address;
 		};
-		const addr = ''; //await getEthAddress();
+		const addr = await getEthAddress();
 		console.log('ledgerAddress', addr);
 		return addr;
 	}

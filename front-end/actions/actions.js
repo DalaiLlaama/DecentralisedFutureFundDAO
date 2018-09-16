@@ -10,6 +10,7 @@ function requestAccounts(signer) {
 
 export const SET_ACCOUNTS = 'SET_ACCOUNTS';
 function accountsReceived(accounts) {
+	console.log('accountsReceived enter', accounts);
 	return {
 		type: SET_ACCOUNTS,
 		text: accounts
